@@ -1,0 +1,9 @@
+PREFIX ex:   <http://www.github.com/silvialx/Onto/>
+PREFIX argu: <http://www.github.com/argumentsontology/>
+PREFIX owl:  <http://www.w3.org/2002/07/owl#>
+
+SELECT DISTINCT ?phil
+WHERE {?phil a ex:Philosopher
+BIND(STRAFTER(STR(?phil), "Onto/") AS ?philName)
+}
+

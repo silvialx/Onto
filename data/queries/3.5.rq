@@ -1,0 +1,16 @@
+PREFIX ex:   <http://www.github.com/silvialx/Onto/>
+PREFIX argo: <http://www.github.com/argumentsontology/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+
+SELECT ?positionName (COUNT(DISTINCT ?argument) AS ?attackedByNArguments)
+       (GROUP_CONCAT(DISTINCT STRAFTER(STR(?argument), "Onto/"); separator=", ") AS ?arguments)
+WHERE {
+  ?argument a argo:Argument ;
+            argo:negates ?position .
+  ?position a ex:MetaethicalPosition .
+
+BIND(STRAFTER(STR(?position), "Onto/") AS ?positionName)
+}
+GROUP BY ?position
+ORDER BY DESC(?attackedByNArguments)

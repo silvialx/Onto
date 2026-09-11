@@ -1,0 +1,41 @@
+{
+  "columns": [
+    "position",
+    "positionLabel",
+    "attackCount"
+  ],
+  "rows": [
+    {
+      "position": "Nonnaturalism",
+      "attackCount": "5"
+    },
+    {
+      "position": "NonReductiveNaturalism",
+      "attackCount": "5"
+    },
+    {
+      "position": "GibbardNormExpressivism",
+      "attackCount": "4"
+    },
+    {
+      "position": "DivineCommandTheory",
+      "attackCount": "1"
+    },
+    {
+      "position": "ErrorTheory",
+      "attackCount": "1"
+    },
+    {
+      "position": "Prescriptivism",
+      "attackCount": "1"
+    },
+    {
+      "position": "RossianIntuitionism",
+      "attackCount": "1"
+    },
+    {
+      "position": "ReductiveNaturalism",
+      "attackCount": "1"
+    }
+  ]
+}

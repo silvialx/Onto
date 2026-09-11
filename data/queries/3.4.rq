@@ -1,0 +1,27 @@
+PREFIX ex:     <http://www.github.com/silvialx/Onto/>
+PREFIX argont: <http://www.github.com/argumentsontology/>
+PREFIX rdfs:   <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX skos:   <http://www.w3.org/2004/02/skos/core#>
+
+SELECT ?positionName ?axisPropertyName 
+       ?stance ?stanceDefinition
+       ?authorName ?authorSeeAlso
+WHERE {
+  BIND(ex:ErrorTheory AS ?position)
+
+  ?position ?axisProperty ?stance .
+  ?axisProperty rdfs:subPropertyOf argont:hasSupposition .
+
+  OPTIONAL { ?axisClass rdfs:comment ?axisComment }
+  OPTIONAL { ?stance skos:definition ?stanceDefinition }
+
+  OPTIONAL {
+    ?author a ex:Philosopher ;
+            argont:supports ?position .
+    OPTIONAL { ?author rdfs:seeAlso ?authorSeeAlso }
+  }
+BIND(STRAFTER(STR(?position), "Onto/") AS ?positionName)
+BIND(STRAFTER(STR(?axisProperty), "Onto/") AS ?axisPropertyName)
+BIND(STRAFTER(STR(?author), "Onto/") AS ?authorName)
+}
+ORDER BY ?axisProperty

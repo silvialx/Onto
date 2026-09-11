@@ -1,0 +1,25 @@
+{
+  "columns": [
+    "axisProperty",
+    "mackieStance",
+    "mackieStanceDefinition",
+    "blackburnStance",
+    "blackburnStanceDefinition"
+  ],
+  "rows": [
+    {
+      "axisProperty": "epistemicSupposition",
+      "mackieStance": "Skeptic",
+      "mackieStanceDefinition": "Skepticism in epistemology is a philosophical approach that questions the possibility of knowledge and challenges the reliability of knowledge claims. It often involves doubting whether we can truly know anything beyond our immediate experiences.",
+      "blackburnStance": "QuasiRealist",
+      "blackburnStanceDefinition": "Quasi-realism claims that although it is not wrong to claim statements such as \"it is a fact that lying is wrong\", but it would be wrong to say that ethical statement belong to a full an final metaphysical representation of what reality is like."
+    },
+    {
+      "axisProperty": "representationSupposition",
+      "mackieStance": "Representationalist",
+      "mackieStanceDefinition": "Representationalism holds that ethical statements such as \"murder is wrong\" represent a way reality is or could be.",
+      "blackburnStance": "Antirepresentationalist",
+      "blackburnStanceDefinition": "Antirepresentationalism holds that statements such as \"murder is wrong\" prescribe a way reality ought to be, even if it isn't like that."
+    }
+  ]
+}

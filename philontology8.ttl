@@ -1,0 +1,2730 @@
+@prefix : <http://www.semanticweb.org/silvi/ontologies/2026/6/untitled-ontology-6#> .
+@prefix ex: <http://www.github.com/silvialx/Onto/> .
+@prefix ns1: <http://schema.org/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix argo: <http://www.github/argumentsontology/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix swrl: <http://www.w3.org/2003/11/swrl#> .
+@prefix fabio: <http://purl.org/spar/fabio/> .
+@prefix swrla: <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#> .
+@prefix schema: <https://schema.org/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@base <http://www.semanticweb.org/silvi/ontologies/2026/6/untitled-ontology-6#> .
+
+[ rdf:type owl:Ontology
+ ] .
+
+#################################################################
+#    Annotation properties
+#################################################################
+
+###  http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled
+swrla:isRuleEnabled rdf:type owl:AnnotationProperty .
+
+
+###  http://www.w3.org/2004/02/skos/core#definition
+skos:definition rdf:type owl:AnnotationProperty .
+
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://purl.org/dc/terms/creator
+dcterms:creator rdf:type owl:ObjectProperty ;
+                owl:inverseOf ex:created ;
+                rdfs:domain [ rdf:type owl:Class ;
+                              owl:unionOf ( fabio:BookChapter
+                                            <http://www.github.com/argumentsontology/Argument>
+                                          )
+                            ] ;
+                rdfs:range ex:Philosopher .
+
+
+###  http://purl.org/spar/cito/disagreesWith
+<http://purl.org/spar/cito/disagreesWith> rdf:type owl:ObjectProperty .
+
+
+###  http://purl.org/spar/cito/disputes
+<http://purl.org/spar/cito/disputes> rdf:type owl:ObjectProperty .
+
+
+###  http://purl.org/spar/cito/refutes
+<http://purl.org/spar/cito/refutes> rdf:type owl:ObjectProperty .
+
+
+###  http://purl.org/spar/cito/supports
+<http://purl.org/spar/cito/supports> rdf:type owl:ObjectProperty .
+
+
+###  http://www.github.com/argumentsontology/contradicts
+<http://www.github.com/argumentsontology/contradicts> rdf:type owl:ObjectProperty ;
+                                                      rdfs:subPropertyOf <http://purl.org/spar/cito/disputes> ,
+                                                                         <http://www.github.com/argumentsontology/opposes> ;
+                                                      owl:inverseOf <http://www.github.com/argumentsontology/isContradictedBy> .
+
+
+###  http://www.github.com/argumentsontology/hasConclusion
+<http://www.github.com/argumentsontology/hasConclusion> rdf:type owl:ObjectProperty ;
+                                                        owl:inverseOf ex:conclusionOf ;
+                                                        rdfs:domain <http://www.github.com/argumentsontology/Argument> ;
+                                                        rdfs:range <http://www.github.com/argumentsontology/Claim> ;
+                                                        rdfs:label "has conclusion"@en .
+
+
+###  http://www.github.com/argumentsontology/hasPremise
+<http://www.github.com/argumentsontology/hasPremise> rdf:type owl:ObjectProperty ;
+                                                     owl:inverseOf ex:premiseOf ;
+                                                     rdfs:domain <http://www.github.com/argumentsontology/Argument> ;
+                                                     rdfs:range <http://www.github.com/argumentsontology/Claim> ;
+                                                     rdfs:label "has premise"@en .
+
+
+###  http://www.github.com/argumentsontology/hasSupposition
+<http://www.github.com/argumentsontology/hasSupposition> rdf:type owl:ObjectProperty ;
+                                                         rdfs:domain [ rdf:type owl:Class ;
+                                                                       owl:unionOf ( <http://www.github.com/argumentsontology/Argument>
+                                                                                     ex:Philosopher
+                                                                                   )
+                                                                     ] .
+
+
+###  http://www.github.com/argumentsontology/isContradictedBy
+<http://www.github.com/argumentsontology/isContradictedBy> rdf:type owl:ObjectProperty ;
+                                                           rdfs:subPropertyOf <http://www.github.com/argumentsontology/isOpposedBy> .
+
+
+###  http://www.github.com/argumentsontology/isNegatedBy
+<http://www.github.com/argumentsontology/isNegatedBy> rdf:type owl:ObjectProperty ;
+                                                      rdfs:subPropertyOf <http://www.github.com/argumentsontology/isOpposedBy> ;
+                                                      owl:inverseOf <http://www.github.com/argumentsontology/negates> .
+
+
+###  http://www.github.com/argumentsontology/isOpposedBy
+<http://www.github.com/argumentsontology/isOpposedBy> rdf:type owl:ObjectProperty ;
+                                                      owl:inverseOf <http://www.github.com/argumentsontology/opposes> .
+
+
+###  http://www.github.com/argumentsontology/isSupportedBy
+<http://www.github.com/argumentsontology/isSupportedBy> rdf:type owl:ObjectProperty ;
+                                                        owl:inverseOf <http://www.github.com/argumentsontology/supports> .
+
+
+###  http://www.github.com/argumentsontology/negates
+<http://www.github.com/argumentsontology/negates> rdf:type owl:ObjectProperty ;
+                                                  rdfs:subPropertyOf <http://purl.org/spar/cito/refutes> ,
+                                                                     <http://www.github.com/argumentsontology/opposes> .
+
+
+###  http://www.github.com/argumentsontology/opposes
+<http://www.github.com/argumentsontology/opposes> rdf:type owl:ObjectProperty ;
+                                                  rdfs:subPropertyOf <http://purl.org/spar/cito/disagreesWith> .
+
+
+###  http://www.github.com/argumentsontology/supports
+<http://www.github.com/argumentsontology/supports> rdf:type owl:ObjectProperty ;
+                                                   rdfs:subPropertyOf <http://purl.org/spar/cito/supports> .
+
+
+###  http://www.github.com/silvialx/Onto/actionMotivationSupposition
+ex:actionMotivationSupposition rdf:type owl:ObjectProperty ;
+                               rdfs:subPropertyOf <http://www.github.com/argumentsontology/hasSupposition> ;
+                               rdfs:range ex:ActionMotivation .
+
+
+###  http://www.github.com/silvialx/Onto/cognitivistSupposition
+ex:cognitivistSupposition rdf:type owl:ObjectProperty ;
+                          rdfs:subPropertyOf <http://www.github.com/argumentsontology/hasSupposition> ;
+                          rdfs:range ex:Cognitivism .
+
+
+###  http://www.github.com/silvialx/Onto/conclusionOf
+ex:conclusionOf rdf:type owl:ObjectProperty .
+
+
+###  http://www.github.com/silvialx/Onto/created
+ex:created rdf:type owl:ObjectProperty ;
+           rdfs:domain ex:Philosopher ;
+           rdfs:range [ rdf:type owl:Class ;
+                        owl:unionOf ( fabio:BookChapter
+                                      <http://www.github.com/argumentsontology/Argument>
+                                    )
+                      ] .
+
+
+###  http://www.github.com/silvialx/Onto/epistemicSupposition
+ex:epistemicSupposition rdf:type owl:ObjectProperty ;
+                        rdfs:subPropertyOf <http://www.github.com/argumentsontology/hasSupposition> ;
+                        rdfs:range ex:Epistemology .
+
+
+###  http://www.github.com/silvialx/Onto/isConditionallyCompatibleWith
+ex:isConditionallyCompatibleWith rdf:type owl:ObjectProperty ,
+                                          owl:SymmetricProperty .
+
+
+###  http://www.github.com/silvialx/Onto/isIncompatibleWith
+ex:isIncompatibleWith rdf:type owl:ObjectProperty ,
+                               owl:SymmetricProperty ;
+                      rdfs:domain [ rdf:type owl:Class ;
+                                    owl:unionOf ( ex:Axis
+                                                  ex:MetaethicalPosition
+                                                )
+                                  ] ;
+                      rdfs:range [ rdf:type owl:Class ;
+                                   owl:unionOf ( ex:Axis
+                                                 ex:MetaethicalPosition
+                                               )
+                                 ] .
+
+
+###  http://www.github.com/silvialx/Onto/metaphysicalSupposition
+ex:metaphysicalSupposition rdf:type owl:ObjectProperty ;
+                           rdfs:subPropertyOf <http://www.github.com/argumentsontology/hasSupposition> ;
+                           rdfs:range ex:Metaphysics .
+
+
+###  http://www.github.com/silvialx/Onto/necessaryCondition
+ex:necessaryCondition rdf:type owl:ObjectProperty .
+
+
+###  http://www.github.com/silvialx/Onto/premiseOf
+ex:premiseOf rdf:type owl:ObjectProperty .
+
+
+###  http://www.github.com/silvialx/Onto/representationSupposition
+ex:representationSupposition rdf:type owl:ObjectProperty ;
+                             rdfs:subPropertyOf <http://www.github.com/argumentsontology/hasSupposition> ;
+                             rdfs:range ex:Representationalism .
+
+
+###  http://www.github.com/silvialx/Onto/truthAptnessSupposition
+ex:truthAptnessSupposition rdf:type owl:ObjectProperty ;
+                           rdfs:subPropertyOf <http://www.github.com/argumentsontology/hasSupposition> ;
+                           rdfs:range ex:TruthAptness .
+
+
+###  http://www.github/argumentsontology/rebuts
+argo:rebuts rdf:type owl:ObjectProperty .
+
+
+###  https://schema.org/about
+schema:about rdf:type owl:ObjectProperty ;
+             owl:inverseOf schema:subjectOf .
+
+
+###  https://schema.org/subjectOf
+schema:subjectOf rdf:type owl:ObjectProperty .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  https://schema.org/datePublished
+schema:datePublished rdf:type owl:DatatypeProperty ;
+                     rdfs:domain ex:BibliographicEntity ;
+                     rdfs:range xsd:integer .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://purl.org/spar/fabio/Book
+fabio:Book rdf:type owl:Class ;
+           rdfs:subClassOf ex:BibliographicEntity .
+
+
+###  http://purl.org/spar/fabio/BookChapter
+fabio:BookChapter rdf:type owl:Class ;
+                  rdfs:subClassOf ex:BibliographicEntity .
+
+
+###  http://www.github.com/argumentsontology/Argument
+<http://www.github.com/argumentsontology/Argument> rdf:type owl:Class ;
+                                                   rdfs:comment "A philosophical argument put forward by one or more philosophers, which supports and/or negates one or more metaethical positions." ;
+                                                   rdfs:label "Argument"@en .
+
+
+###  http://www.github.com/argumentsontology/Claim
+<http://www.github.com/argumentsontology/Claim> rdf:type owl:Class ;
+                                                rdfs:comment "A single proposition that functions as a premise or conclusion within one or more Arguments. The same Claim individual may serve as a premise in one Argument and a conclusion (or premise) in another." ;
+                                                rdfs:label "Claim"@en .
+
+
+###  http://www.github.com/silvialx/Onto/ActionMotivation
+ex:ActionMotivation rdf:type owl:Class ;
+                    rdfs:subClassOf ex:PhilosophyOfMind .
+
+
+###  http://www.github.com/silvialx/Onto/Axis
+ex:Axis rdf:type owl:Class ;
+        rdfs:comment "The four pillars our definitions rely upon." .
+
+
+###  http://www.github.com/silvialx/Onto/BibliographicEntity
+ex:BibliographicEntity rdf:type owl:Class .
+
+
+###  http://www.github.com/silvialx/Onto/Cognitivism
+ex:Cognitivism rdf:type owl:Class ;
+               rdfs:subClassOf ex:PhilosophyOfMind ;
+               rdfs:comment "the elements of this class will classify different stances on the following question: does the state of mind expressed by an ethical statement correspond to a belief about how reality ought to be, or does it rather correspond to a certain attitude, such as outrage or praise?" .
+
+
+###  http://www.github.com/silvialx/Onto/ConsistentPosition
+ex:ConsistentPosition rdf:type owl:Class ;
+                      owl:equivalentClass [ owl:intersectionOf ( ex:MetaethicalPosition
+                                                                 [ rdf:type owl:Restriction ;
+                                                                   owl:onProperty ex:isIncompatibleWith ;
+                                                                   owl:cardinality "0"^^xsd:nonNegativeInteger
+                                                                 ]
+                                                               ) ;
+                                            rdf:type owl:Class
+                                          ] ;
+                      rdfs:subClassOf ex:EvaluatedPosition ;
+                      owl:disjointWith :InconsistentPosition .
+
+
+###  http://www.github.com/silvialx/Onto/Epistemology
+ex:Epistemology rdf:type owl:Class ;
+                rdfs:subClassOf ex:Axis ;
+                rdfs:comment "the epistemic view determines the answer to the following question: can ethical facts be learned through empirical investigation?" .
+
+
+###  http://www.github.com/silvialx/Onto/EvaluatedPosition
+ex:EvaluatedPosition rdf:type owl:Class .
+
+
+###  http://www.github.com/silvialx/Onto/Expressivism
+ex:Expressivism rdf:type owl:Class ;
+                rdfs:subClassOf ex:MetaethicalPosition .
+
+
+###  http://www.github.com/silvialx/Onto/MetaethicalPosition
+ex:MetaethicalPosition rdf:type owl:Class .
+
+
+###  http://www.github.com/silvialx/Onto/Metaphysics
+ex:Metaphysics rdf:type owl:Class ;
+               rdfs:subClassOf ex:Axis ;
+               rdfs:comment "the metaphysical view determines the answer to the following question: is there such a thing as mind-independent, real moral facts?" .
+
+
+###  http://www.github.com/silvialx/Onto/OntologicalSupposition
+ex:OntologicalSupposition rdf:type owl:Class ;
+                          rdfs:subClassOf ex:Supposition .
+
+
+###  http://www.github.com/silvialx/Onto/Person
+ex:Person rdf:type owl:Class .
+
+
+###  http://www.github.com/silvialx/Onto/Philosopher
+ex:Philosopher rdf:type owl:Class ;
+               rdfs:subClassOf ex:Person .
+
+
+###  http://www.github.com/silvialx/Onto/PhilosophyOfLanguage
+ex:PhilosophyOfLanguage rdf:type owl:Class ;
+                        rdfs:subClassOf ex:Axis ;
+                        rdfs:comment "the linguistic view determines the answer to the following question: are propositions like \"is x good?\" truth-apt? Do those sentence prescribe a way the world ought to be?" .
+
+
+###  http://www.github.com/silvialx/Onto/PhilosophyOfMind
+ex:PhilosophyOfMind rdf:type owl:Class ;
+                    rdfs:subClassOf ex:Axis ;
+                    rdfs:comment "the philosophical view determines the answer to the following question: how do moral beliefs affect our reasoning about what to do?" .
+
+
+###  http://www.github.com/silvialx/Onto/Representationalism
+ex:Representationalism rdf:type owl:Class ;
+                       rdfs:subClassOf ex:PhilosophyOfLanguage .
+
+
+###  http://www.github.com/silvialx/Onto/Supposition
+ex:Supposition rdf:type owl:Class .
+
+
+###  http://www.github.com/silvialx/Onto/TruthAptness
+ex:TruthAptness rdf:type owl:Class ;
+                rdfs:subClassOf ex:PhilosophyOfLanguage .
+
+
+###  http://www.github.com/silvialx/Onto/TruthTheorySupposition
+ex:TruthTheorySupposition rdf:type owl:Class ;
+                          rdfs:subClassOf ex:Supposition .
+
+
+###  http://www.semanticweb.org/silvi/ontologies/2026/6/untitled-ontology-6#ConditionallyConsistentPosition
+:ConditionallyConsistentPosition rdf:type owl:Class ;
+                                 rdfs:subClassOf ex:ConsistentPosition .
+
+
+###  http://www.semanticweb.org/silvi/ontologies/2026/6/untitled-ontology-6#InconsistentPosition
+:InconsistentPosition rdf:type owl:Class ;
+                      owl:equivalentClass [ owl:intersectionOf ( ex:MetaethicalPosition
+                                                                 [ rdf:type owl:Class ;
+                                                                   owl:complementOf ex:ConsistentPosition
+                                                                 ]
+                                                               ) ;
+                                            rdf:type owl:Class
+                                          ] ;
+                      rdfs:subClassOf ex:EvaluatedPosition .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://www.github.com/silvialx/Onto/AProjectivistStoryExplainsWhyWeTreatEvaluativeAndDescriptiveJudgmentsAsBound
+ex:AProjectivistStoryExplainsWhyWeTreatEvaluativeAndDescriptiveJudgmentsAsBound rdf:type owl:NamedIndividual ,
+                                                                                         <http://www.github.com/argumentsontology/Claim> ;
+                                                                                rdfs:label "A projectivist/expressivist story about why we treat evaluative and descriptive judgments as bound together explains the supervenience relation more cheaply."@en .
+
+
+###  http://www.github.com/silvialx/Onto/AbrahamsDilemma
+ex:AbrahamsDilemma rdf:type owl:NamedIndividual ,
+                            <http://www.github.com/argumentsontology/Argument> ;
+                   <http://www.github.com/argumentsontology/negates> ex:DivineCommandTheory ;
+                   rdfs:label "God's command towards Abraham to kill his own son leads to this dilemma: is it ever wrong to obey God?" .
+
+
+###  http://www.github.com/silvialx/Onto/AbrahamsDilemmaResponse
+ex:AbrahamsDilemmaResponse rdf:type owl:NamedIndividual ,
+                                    <http://www.github.com/argumentsontology/Argument> ;
+                           <http://www.github.com/argumentsontology/hasPremise> ex:GodIsTheSubjectOfEthics ,
+                                                                                <http://www.github.com/silvialx/Onto/Excellence&HumanWellBeing> ;
+                           <http://www.github.com/argumentsontology/supports> ex:DivineCommandTheory ;
+                           argo:rebuts ex:AbrahamsDilemma ;
+                           rdfs:label """God's command towards Abraham to kill his own son leads to this dilemma: is it ever wrong to obey God?
+Adams' response argues that for sure something commanded by god cannot be morally wrong (Adams 1999, 283).""" .
+
+
+###  http://www.github.com/silvialx/Onto/AbsenceOfASingleObjectiveMoralOrderExplainsDisagreementBetter
+ex:AbsenceOfASingleObjectiveMoralOrderExplainsDisagreementBetter rdf:type owl:NamedIndividual ,
+                                                                          <http://www.github.com/argumentsontology/Claim> ;
+                                                                 rdfs:label "The absence of a single objective moral order better explains the depth and persistence of moral disagreement than widespread error does."@en .
+
+
+###  http://www.github.com/silvialx/Onto/AbsentImplausibleCoincidenceThisUndercutsRealistJustification
+ex:AbsentImplausibleCoincidenceThisUndercutsRealistJustification rdf:type owl:NamedIndividual ,
+                                                                          <http://www.github.com/argumentsontology/Claim> ;
+                                                                 rdfs:label "A coincidence between fitness-tracking and truth-tracking is highly implausible. This undercuts the justification for realist confidence in our moral beliefs (Street 2006, 122)."@en .
+
+
+###  http://www.github.com/silvialx/Onto/Adams
+ex:Adams rdf:type owl:NamedIndividual ,
+                  ex:Philosopher ;
+         <http://www.github.com/argumentsontology/supports> ex:DivineCommandTheory ;
+         ex:created ex:AbrahamsDilemmaResponse ,
+                    ex:FiniteAndInfiniteGoods ,
+                    ex:MoralObligationImposedByCommands ;
+         rdfs:seeAlso <http://www.wikidata.org/entity/Q5254926> .
+
+
+###  http://www.github.com/silvialx/Onto/AkrasiaArgument
+ex:AkrasiaArgument rdf:type owl:NamedIndividual ,
+                            <http://www.github.com/argumentsontology/Argument> ;
+                   <http://www.github.com/argumentsontology/hasConclusion> ex:MoralJudgmentsAreBeliefsNotAttitudes ;
+                   <http://www.github.com/argumentsontology/hasPremise> ex:AkraticMotivationalFailure ,
+                                                                        ex:NoncognitivismEntailsMotivationalGuarantee ,
+                                                                        ex:SincereRightJudgmentPossible ;
+                   <http://www.github.com/argumentsontology/negates> ex:BlackburnExpressivism ,
+                                                                     ex:Emotivism ,
+                                                                     ex:GibbardNormExpressivism ;
+                   <http://www.github.com/argumentsontology/supports> ex:Cognitivist ;
+                   rdfs:label "an agent can sincerely judge that an action is right yet fail, through weakness of will, to be motivated to do it; since noncognitivist theories tie the meaning of moral judgments to motivating attitudes, they struggle to make sense of this gap, which is better explained by treating moral judgments as beliefs that can fail to move us (an argument for cognitivism from akrasia)." .
+
+
+###  http://www.github.com/silvialx/Onto/AkraticMotivationalFailure
+ex:AkraticMotivationalFailure rdf:type owl:NamedIndividual ,
+                                       <http://www.github.com/argumentsontology/Claim> ;
+                              rdfs:label "That same agent can, through weakness of will, fail to be motivated to perform it."@en .
+
+
+###  http://www.github.com/silvialx/Onto/Antirealist
+ex:Antirealist rdf:type owl:NamedIndividual ,
+                        ex:Metaphysics ;
+               ex:isConditionallyCompatibleWith ex:QuasiRealist ;
+               ex:isIncompatibleWith ex:Cognitivist ,
+                                     ex:Coherentist ,
+                                     ex:Empiricist ,
+                                     ex:Intuitionist ,
+                                     ex:NaturalRealism ,
+                                     ex:NonnaturalRealism ,
+                                     ex:Realist ;
+               skos:definition "Antirealism is the negation of relaism. Consequently ethical facts are not \"out there\" as part of reality. Ethical facts are too different, too peculiar compared to what we think composes our reality." .
+
+
+###  http://www.github.com/silvialx/Onto/Antirepresentationalist
+ex:Antirepresentationalist rdf:type owl:NamedIndividual ,
+                                    ex:Representationalism ;
+                           owl:differentFrom ex:Representationalist ;
+                           ex:isIncompatibleWith ex:Empiricist ,
+                                                 ex:NaturalRealism ,
+                                                 ex:NonnaturalRealism ,
+                                                 ex:Representationalist ;
+                           skos:definition "Antirepresentationalism holds that statements such as \"murder is wrong\" prescribe a way reality ought to be, even if it isn't like that." .
+
+
+###  http://www.github.com/silvialx/Onto/ArgumentFromDisagreement
+ex:ArgumentFromDisagreement rdf:type owl:NamedIndividual ,
+                                     <http://www.github.com/argumentsontology/Argument> ;
+                            <http://www.github.com/argumentsontology/hasConclusion> ex:NoSingleObjectiveMoralOrderBestExplainsMoralDisagreement ;
+                            <http://www.github.com/argumentsontology/hasPremise> ex:AbsenceOfASingleObjectiveMoralOrderExplainsDisagreementBetter ,
+                                                                                 ex:MoralDisagreementIsDeepAndIntractableAcrossCulturesAndHistory ,
+                                                                                 ex:RealismMustExplainDisagreementAsWidespreadError ;
+                            <http://www.github.com/argumentsontology/negates> ex:Nonnaturalism ,
+                                                                              ex:Realist ;
+                            <http://www.github.com/argumentsontology/supports> ex:ErrorTheory ,
+                                                                               ex:Relativism ;
+                            rdfs:label "the depth and intractability of moral disagreement across cultures and history is better explained by there being no single objective moral order than by widespread error on the part of the disputants (Mackie)." .
+
+
+###  http://www.github.com/silvialx/Onto/Aristotle
+ex:Aristotle rdf:type owl:NamedIndividual ,
+                      ex:Philosopher ;
+             ex:created ex:AkrasiaArgument ,
+                        ex:NicomacheanEthics ;
+             rdfs:seeAlso <http://www.wikidata.org/entity/Q868> .
+
+
+###  http://www.github.com/silvialx/Onto/Ayer
+ex:Ayer rdf:type owl:NamedIndividual ,
+                 ex:Philosopher ;
+        ex:created :LanguageTruthAndLogicCh6 ;
+        rdfs:seeAlso <http://www.wikidata.org/entity/Q243757> .
+
+
+###  http://www.github.com/silvialx/Onto/BeliefsTrueOnlyByAccidentDoNotConstituteKnowledge
+ex:BeliefsTrueOnlyByAccidentDoNotConstituteKnowledge rdf:type owl:NamedIndividual ,
+                                                              <http://www.github.com/argumentsontology/Claim> ;
+                                                     rdfs:label "A true belief that only accidentally tracks the fact it is about does not constitute knowledge."@en .
+
+
+###  http://www.github.com/silvialx/Onto/Blackburn
+ex:Blackburn rdf:type owl:NamedIndividual ,
+                      ex:Philosopher ;
+             <http://www.github.com/argumentsontology/supports> ex:BlackburnExpressivism ;
+             ex:created ex:SupervenienceArgument ,
+                        ex:SecuringTheKnots:MoralEpistemologyForTheQuasiRealist ;
+             rdfs:comment "The \"truthAptness\" predicate and the \"externalism\" predicate assume a minimalist conception of truth." ;
+             rdfs:seeAlso <http://www.wikidata.org/entity/Q287357> .
+
+
+###  http://www.github.com/silvialx/Onto/BlackburnExpressivism
+ex:BlackburnExpressivism rdf:type owl:NamedIndividual ,
+                                  ex:ConsistentPosition ,
+                                  ex:Expressivism ;
+                         ex:actionMotivationSupposition ex:Internalist ;
+                         ex:cognitivistSupposition ex:Noncognitivist ;
+                         ex:epistemicSupposition ex:QuasiRealist ;
+                         ex:necessaryCondition ex:truthMinimalism ;
+                         ex:representationSupposition ex:Antirepresentationalist ;
+                         rdfs:comment "" .
+
+
+###  http://www.github.com/silvialx/Onto/Boyd
+ex:Boyd rdf:type owl:NamedIndividual ,
+                 ex:Philosopher ;
+        <http://www.github.com/argumentsontology/supports> ex:NonReductiveNaturalism ;
+        ex:created ex:HowToBeAMoralRealist ,
+                   ex:SimilaritiesInMoralityAndScience ;
+        rdfs:seeAlso <http://www.wikidata.org/entity/Q974723> .
+
+
+###  http://www.github.com/silvialx/Onto/Brink
+ex:Brink rdf:type owl:NamedIndividual ,
+                  ex:Philosopher ;
+         <http://www.github.com/argumentsontology/supports> ex:NonReductiveNaturalism ;
+         ex:created :MoralRealismAndTheFoundationsOfEthics ;
+         rdfs:seeAlso <http://www.wikidata.org/entity/Q21903486> .
+
+
+###  http://www.github.com/silvialx/Onto/CognitiveCommandImplication
+ex:CognitiveCommandImplication rdf:type owl:NamedIndividual ,
+                                        <http://www.github.com/argumentsontology/Argument> ;
+                               <http://www.github.com/argumentsontology/hasPremise> :CognitiveCommand ,
+                                                                                    :TruismOfSentencesAndTheirTruth ;
+                               <http://www.github.com/argumentsontology/supports> ex:QuietistMetaethics ;
+                               rdfs:label "When one appraises the claim that a sentence S is true and  holds an opinion about its content, divergent appraisals may turn in divergent opinions. But when such differences fail of Cognitive Command, therefore no inputs are different between the subjects holding these opinions, and no cognitive shortcoming need be involved for such difference of opinion, the same kind of divergence can be held for S's truth value. Therefore, in such cases, minimalism about meaning has to involve minimalism about metalinguistic ascriptions of truth (Wright 1992, 222)." .
+
+
+###  http://www.github.com/silvialx/Onto/Cognitivist
+ex:Cognitivist rdf:type owl:NamedIndividual ,
+                        ex:Cognitivism ;
+               owl:differentFrom ex:Noncognitivist ;
+               ex:isIncompatibleWith ex:NonTruthApt ,
+                                     ex:QuasiRealist ;
+               skos:definition "the mental states expressed by ethical statements are belief about what the wourld should be." .
+
+
+###  http://www.github.com/silvialx/Onto/Coherentist
+ex:Coherentist rdf:type owl:NamedIndividual ,
+                        ex:Epistemology ;
+               owl:differentFrom ex:QuasiRealist ,
+                                 ex:Skeptic ;
+               ex:isIncompatibleWith ex:Empiricist ,
+                                     ex:Fictionalist ,
+                                     ex:Intuitionist ,
+                                     ex:NonTruthApt ,
+                                     ex:Noncognitivist ,
+                                     ex:Skeptic ;
+               skos:definition "Coherentism is typically understood as the view that moral beliefs are justified by the fact that they are consistent, connected and comprehensive." .
+
+
+###  http://www.github.com/silvialx/Onto/CompanionsInGuiltArgument
+ex:CompanionsInGuiltArgument rdf:type owl:NamedIndividual ,
+                                      <http://www.github.com/argumentsontology/Argument> ;
+                             <http://www.github.com/argumentsontology/hasConclusion> ex:ErrorTheoreticArgumentsProveTooMuchAndShouldBeRejected ;
+                             <http://www.github.com/argumentsontology/hasPremise> ex:ErrorTheoreticArgumentsTargetQueernessAndDisagreementInMorality ,
+                                                                                  ex:MathematicalLogicalAndEpistemicKnowledgeIsNotUndermined ,
+                                                                                  ex:TheSameErrorTheoreticArgumentsGeneralizeToMathLogicAndEpistemicReasons ;
+                             <http://www.github.com/argumentsontology/negates> ex:ErrorTheory ;
+                             <http://www.github.com/argumentsontology/supports> ex:Nonnaturalism ;
+                             rdfs:label "if error-theoretic arguments (queerness, disagreement) also threaten seemingly unproblematic domains like mathematics, epistemic reasons, or logic, then either those domains are equally undermined or the argument proves too much (Cuneo)." .
+
+
+###  http://www.github.com/silvialx/Onto/Contractualism
+ex:Contractualism rdf:type owl:NamedIndividual ,
+                           ex:ConsistentPosition ,
+                           ex:MetaethicalPosition ;
+                  ex:actionMotivationSupposition ex:Internalist ;
+                  ex:cognitivistSupposition ex:Cognitivist ;
+                  ex:epistemicSupposition ex:ReflectiveEquilibriumist ;
+                  ex:metaphysicalSupposition ex:Quietist ;
+                  ex:representationSupposition ex:Representationalist ;
+                  ex:truthAptnessSupposition ex:TruthApt ;
+                  rdfs:comment "an act is wrong if its performance would be disallowed by any principle that no one could reasonably reject as a basis for informed, unforced general agreement (Scanlon); related contractarian views ground morality in rational bargaining (Gauthier) or mutual accountability (Darwall)." .
+
+
+###  http://www.github.com/silvialx/Onto/ConvergenceInMoralityAndScience
+ex:ConvergenceInMoralityAndScience rdf:type owl:NamedIndividual ,
+                                            <http://www.github.com/argumentsontology/Claim> ;
+                                   <http://www.github.com/argumentsontology/negates> ex:SimilaritiesInMoralityAndScience ;
+                                   <http://www.github.com/argumentsontology/supports> ex:DifferenceInMoralityAndScience ;
+                                   rdfs:label "Convergence is understood differently in science and morality. Firstly, no one expects full convergence in a moral inquiry, whereas it should ideally be reached in an inquiry of scientific nature. Even if it happened that full convergence in ethical outlook was reached, it will not be correct to think it has come about because convergence has been guided by how things really are, while convergence in the sicences might be explained in that way." .
+
+
+###  http://www.github.com/silvialx/Onto/Copp
+ex:Copp rdf:type owl:NamedIndividual ,
+                 ex:Philosopher ;
+        <http://www.github.com/argumentsontology/supports> ex:NonReductiveNaturalism ;
+        ex:created :MoralityNormativityAndSociety ;
+        rdfs:seeAlso <http://www.wikidata.org/entity/Q93247149> .
+
+
+###  http://www.github.com/silvialx/Onto/CornellRealismHoldsMoralTermsPickOutWhateverNaturalPropertyRegulatesTheirUse
+ex:CornellRealismHoldsMoralTermsPickOutWhateverNaturalPropertyRegulatesTheirUse rdf:type owl:NamedIndividual ,
+                                                                                         <http://www.github.com/argumentsontology/Claim> ;
+                                                                                rdfs:label "Cornell Realism holds that moral terms pick out whatever natural property causally regulates their use."@en .
+
+
+###  http://www.github.com/silvialx/Onto/CreepingMinimalismErodesAnyRemainingDifferenceBetweenTheViews
+ex:CreepingMinimalismErodesAnyRemainingDifferenceBetweenTheViews rdf:type owl:NamedIndividual ,
+                                                                          <http://www.github.com/argumentsontology/Claim> ;
+                                                                 rdfs:label "Once creeping minimalism about truth, fact, and belief has run its course, no principled difference between the views remains."@en .
+
+
+###  http://www.github.com/silvialx/Onto/Cuneo
+ex:Cuneo rdf:type owl:NamedIndividual ,
+                  ex:Philosopher ;
+         <http://www.github.com/argumentsontology/supports> ex:Nonnaturalism ;
+         ex:created ex:CompanionsInGuiltArgument ,
+                    ex:TheNormativeWebAnArgumentForMoralRealism .
+
+
+###  http://www.github.com/silvialx/Onto/Dancy
+ex:Dancy rdf:type owl:NamedIndividual ,
+                  ex:Philosopher ;
+         <http://www.github.com/argumentsontology/supports> ex:Particularism ;
+         ex:created :MoralReasons ;
+         rdfs:seeAlso <http://www.wikidata.org/entity/Q2460022> .
+
+
+###  http://www.github.com/silvialx/Onto/Darwall
+ex:Darwall rdf:type owl:NamedIndividual ,
+                    ex:Philosopher ;
+           <http://www.github.com/argumentsontology/supports> ex:Contractualism ;
+           ex:created :TheSecondPersonStandpoint ;
+           rdfs:seeAlso <http://www.wikidata.org/entity/Q7609017> .
+
+
+###  http://www.github.com/silvialx/Onto/DescribingChangeAsProgressRequiresAFrameworkIndependentStandardOfCorrectness
+ex:DescribingChangeAsProgressRequiresAFrameworkIndependentStandardOfCorrectness rdf:type owl:NamedIndividual ,
+                                                                                         <http://www.github.com/argumentsontology/Claim> ;
+                                                                                rdfs:label "Describing a change as progress, rather than mere change, requires a standard of moral correctness not fixed by any single framework."@en .
+
+
+###  http://www.github.com/silvialx/Onto/DescriptivePremisesStateOnlyWhatIsTheCase
+ex:DescriptivePremisesStateOnlyWhatIsTheCase rdf:type owl:NamedIndividual ,
+                                                      <http://www.github.com/argumentsontology/Claim> ;
+                                             rdfs:label "Descriptive premises state only what is the case."@en .
+
+
+###  http://www.github.com/silvialx/Onto/DifferenceInMoralityAndScience
+ex:DifferenceInMoralityAndScience rdf:type owl:NamedIndividual ,
+                                           <http://www.github.com/argumentsontology/Argument> ;
+                                  <http://www.github.com/argumentsontology/hasPremise> ex:ConvergenceInMoralityAndScience ;
+                                  rdfs:label "Morality and science are fundamentlaly different in the way they presume objectivity and the way convergence and divergence are handled (Williams 1985, 136)." .
+
+
+###  http://www.github.com/silvialx/Onto/DivineCommandRealism
+ex:DivineCommandRealism rdf:type owl:NamedIndividual ,
+                                 ex:Metaphysics ;
+                        ex:isConditionallyCompatibleWith ex:NonnaturalRealism ;
+                        ex:isIncompatibleWith ex:Antirealist ,
+                                              ex:MetaphysicalConstructivist ,
+                                              ex:NaturalRealism ,
+                                              ex:Relativist ,
+                                              ex:Subjectivist ;
+                        ex:necessaryCondition ex:ExistenceOfGod ;
+                        skos:definition "Divine Command Realism holds that moral facts are mind-independent in the sense of being independent of human minds, but are grounded in the commands or will of God." .
+
+
+###  http://www.github.com/silvialx/Onto/DivineCommandTheory
+ex:DivineCommandTheory rdf:type owl:NamedIndividual ,
+                                ex:MetaethicalPosition ;
+                       ex:actionMotivationSupposition ex:Internalist ;
+                       ex:cognitivistSupposition ex:Cognitivist ;
+                       ex:epistemicSupposition ex:Revelationist ;
+                       ex:metaphysicalSupposition ex:DivineCommandRealism ;
+                       ex:representationSupposition ex:Representationalist ;
+                       ex:truthAptnessSupposition ex:TruthApt ;
+                       rdfs:comment "an act is morally obligatory iff, and because, God commands it; moral properties are grounded in the commands or nature of a perfectly good God (Adams)." .
+
+
+###  http://www.github.com/silvialx/Onto/Emotivism
+ex:Emotivism rdf:type owl:NamedIndividual ,
+                      ex:ConsistentPosition ,
+                      ex:Expressivism ;
+             <http://www.github.com/argumentsontology/isSupportedBy> ex:Ayer ,
+                                                                     ex:HumeLaw ;
+             ex:cognitivistSupposition ex:Noncognitivist ;
+             ex:epistemicSupposition ex:Skeptic ;
+             ex:metaphysicalSupposition ex:Antirealist ;
+             ex:representationSupposition ex:Antirepresentationalist ;
+             ex:truthAptnessSupposition ex:NonTruthApt .
+
+
+###  http://www.github.com/silvialx/Onto/Empiricist
+ex:Empiricist rdf:type owl:NamedIndividual ,
+                       ex:Epistemology ;
+              owl:differentFrom ex:Skeptic ;
+              ex:isIncompatibleWith ex:Antirealist ,
+                                    ex:Antirepresentationalist ,
+                                    ex:Coherentist ,
+                                    ex:Fictionalist ,
+                                    ex:Intuitionist ,
+                                    ex:NonTruthApt ,
+                                    ex:Noncognitivist ,
+                                    ex:NonnaturalRealism ,
+                                    ex:QuasiRealist ,
+                                    ex:Skeptic ;
+              skos:definition "An empiricist epistemological view holds that true knowledge comes primarily from sensory evidence." .
+
+
+###  http://www.github.com/silvialx/Onto/Enoch
+ex:Enoch rdf:type owl:NamedIndividual ,
+                  ex:Philosopher ;
+         <http://www.github.com/argumentsontology/supports> ex:Nonnaturalism ;
+         ex:created :TakingMoralitySeriously ;
+         rdfs:seeAlso <http://www.wikidata.org/entity/Q6871095> .
+
+
+###  http://www.github.com/silvialx/Onto/ErrorTheoreticArgumentsProveTooMuchAndShouldBeRejected
+ex:ErrorTheoreticArgumentsProveTooMuchAndShouldBeRejected rdf:type owl:NamedIndividual ,
+                                                                   <http://www.github.com/argumentsontology/Claim> ;
+                                                          rdfs:label "Error-theoretic arguments against morality prove too much and should be rejected."@en .
+
+
+###  http://www.github.com/silvialx/Onto/ErrorTheoreticArgumentsTargetQueernessAndDisagreementInMorality
+ex:ErrorTheoreticArgumentsTargetQueernessAndDisagreementInMorality rdf:type owl:NamedIndividual ,
+                                                                            <http://www.github.com/argumentsontology/Claim> ;
+                                                                   rdfs:label "Error-theoretic arguments target morality via considerations of metaphysical queerness and disagreement."@en .
+
+
+###  http://www.github.com/silvialx/Onto/ErrorTheory
+ex:ErrorTheory rdf:type owl:NamedIndividual ,
+                        ex:ConsistentPosition ,
+                        ex:MetaethicalPosition ;
+               ex:epistemicSupposition ex:Skeptic ;
+               ex:metaphysicalSupposition ex:Antirealist ;
+               ex:representationSupposition ex:Representationalist ;
+               ex:truthAptnessSupposition ex:TruthApt .
+
+
+###  http://www.github.com/silvialx/Onto/EthicsAndLanguage
+ex:EthicsAndLanguage rdf:type owl:NamedIndividual ,
+                              fabio:Book ;
+                     schema:about ex:Emotivism ,
+                                  ex:MoralStatementsExpressAttitudesAndCommands ;
+                     schema:datePublished 1944 ;
+                     rdfs:seeAlso <http://www.wikidata.org/entity/Q5403456> .
+
+
+###  http://www.github.com/silvialx/Onto/EthicsAndTheLimitsOfPhilosophy
+ex:EthicsAndTheLimitsOfPhilosophy rdf:type owl:NamedIndividual ,
+                                           fabio:Book ;
+                                  schema:about ex:DifferenceInMoralityAndScience ,
+                                               ex:ReflectionDestroysKnowledge ,
+                                               ex:Relativism ;
+                                  schema:datePublished 1985 ;
+                                  rdfs:seeAlso <http://www.wikidata.org/entity/Q25506452> .
+
+
+###  http://www.github.com/silvialx/Onto/EvolutionaryDebunkingArgument
+ex:EvolutionaryDebunkingArgument rdf:type owl:NamedIndividual ,
+                                          <http://www.github.com/argumentsontology/Argument> ;
+                                 <http://www.github.com/argumentsontology/hasConclusion> ex:RealistConfidenceInMoralBeliefsIsUnjustified ;
+                                 <http://www.github.com/argumentsontology/hasPremise> ex:AbsentImplausibleCoincidenceThisUndercutsRealistJustification ,
+                                                                                      ex:EvolutionaryPressuresTrackReproductiveFitnessNotMindIndependentMoralTruth ,
+                                                                                      ex:MoralBeliefsAreMassivelyShapedByEvolutionaryPressures ;
+                                 <http://www.github.com/argumentsontology/negates> ex:NonReductiveNaturalism ,
+                                                                                   ex:Nonnaturalism ;
+                                 <http://www.github.com/argumentsontology/supports> ex:HumeanConstructivism ;
+                                 rdfs:label "our moral beliefs are massively shaped by evolutionary pressures that track reproductive fitness, not mind-independent moral truth; absent an implausible coincidence, this undercuts the justification for realist confidence in those beliefs (Street)." .
+
+
+###  http://www.github.com/silvialx/Onto/EvolutionaryPressuresTrackReproductiveFitnessNotMindIndependentMoralTruth
+ex:EvolutionaryPressuresTrackReproductiveFitnessNotMindIndependentMoralTruth rdf:type owl:NamedIndividual ,
+                                                                                      <http://www.github.com/argumentsontology/Claim> ;
+                                                                             rdfs:seeAlso "Evolutionary pressures track reproductive fitness, not mind-independent moral truth (Street 2006, 114)."@en .
+
+
+###  http://www.github.com/silvialx/Onto/ExistenceInternalist
+ex:ExistenceInternalist rdf:type owl:NamedIndividual ,
+                                 ex:ActionMotivation ;
+                        ex:isConditionallyCompatibleWith ex:Internalist ;
+                        ex:isIncompatibleWith ex:Externalist ;
+                        skos:definition "it is necessarily true that if a moral reason exists for an agent, the agent has some motivation to act on it, independent of what the agent actually judges (a stronger, reasons-based internalism)." .
+
+
+###  http://www.github.com/silvialx/Onto/ExistenceOfGod
+ex:ExistenceOfGod rdf:type owl:NamedIndividual ,
+                           ex:OntologicalSupposition .
+
+
+###  http://www.github.com/silvialx/Onto/ExplanatoryImpotenceArgument
+ex:ExplanatoryImpotenceArgument rdf:type owl:NamedIndividual ,
+                                         <http://www.github.com/argumentsontology/Argument> ;
+                                <http://www.github.com/argumentsontology/hasConclusion> ex:ThereIsNoGoodReasonToBelieveMoralFactsExist ;
+                                <http://www.github.com/argumentsontology/hasPremise> ex:MoralFactsNeverFeatureInTheBestExplanationOfAnyObservation ,
+                                                                                     ex:PositsThatNeverExplainAnythingGiveNoReasonToBelieveInThem ,
+                                                                                     ex:ScientificPositsEarnTheirPlaceByFeaturingInBestExplanations ;
+                                <http://www.github.com/argumentsontology/negates> ex:NaturalRealism ,
+                                                                                  ex:NonReductiveNaturalism ;
+                                <http://www.github.com/argumentsontology/supports> ex:Antirealist ,
+                                                                                   ex:ErrorTheory ;
+                                rdfs:label "unlike scientific posits, moral facts never seem to feature in the best explanation of any observation (e.g. of why we have the moral beliefs we do); this explanatory idleness gives us reason to deny that moral facts exist (Harman)." .
+
+
+###  http://www.github.com/silvialx/Onto/ExpressivismExplainsMoralSupervenienceMoreCheaplyThanNonNaturalism
+ex:ExpressivismExplainsMoralSupervenienceMoreCheaplyThanNonNaturalism rdf:type owl:NamedIndividual ,
+                                                                               <http://www.github.com/argumentsontology/Claim> ;
+                                                                      rdfs:label "Expressivism explains the necessary supervenience of moral properties on natural properties more cheaply than non-naturalism does."@en .
+
+
+###  http://www.github.com/silvialx/Onto/ExternalismTreatsTheConnectionBetweenJudgmentAndMotivationAsMerelyContingent
+ex:ExternalismTreatsTheConnectionBetweenJudgmentAndMotivationAsMerelyContingent rdf:type owl:NamedIndividual ,
+                                                                                         <http://www.github.com/argumentsontology/Claim> ;
+                                                                                rdfs:label "Externalism treats the connection between recognizing a moral requirement and being moved by it as merely contingent."@en .
+
+
+###  http://www.github.com/silvialx/Onto/Externalist
+ex:Externalist rdf:type owl:NamedIndividual ,
+                        ex:ActionMotivation ;
+               owl:differentFrom ex:Internalist ;
+               ex:isIncompatibleWith ex:Internalist ;
+               skos:definition "the externalist view states that moral judgement does not always play a role in someone's motivation. Therefore, ethical judgements do not have a privileged role in relation to motivation." .
+
+
+###  http://www.github.com/silvialx/Onto/FakeStance
+ex:FakeStance rdf:type owl:NamedIndividual ,
+                       ex:MetaethicalPosition ;
+              <http://www.github.com/argumentsontology/hasSupposition> ex:Empiricist ;
+              ex:metaphysicalSupposition ex:Antirealist .
+
+
+###  http://www.github.com/silvialx/Onto/FearAndTrembling
+ex:FearAndTrembling rdf:type owl:NamedIndividual ,
+                             fabio:Book ;
+                    schema:about ex:AbrahamsDilemma .
+
+
+###  http://www.github.com/silvialx/Onto/Fictionalist
+ex:Fictionalist rdf:type owl:NamedIndividual ,
+                         ex:Epistemology ;
+                ex:isIncompatibleWith ex:Coherentist ,
+                                      ex:Empiricist ,
+                                      ex:Intuitionist ,
+                                      ex:NaturalRealism ,
+                                      ex:NonnaturalRealism ,
+                                      ex:Realist ,
+                                      ex:Skeptic ;
+                skos:definition "Fictionalism about a certain discourse roughly holds that one cannot aim to reach literal truth in that discourse; rather, truth is treated metaphorically, as a sort of \"fiction\"" .
+
+
+###  http://www.github.com/silvialx/Onto/FiniteAndInfiniteGoods
+ex:FiniteAndInfiniteGoods rdf:type owl:NamedIndividual ,
+                                   fabio:Book ;
+                          schema:about ex:AbrahamsDilemmaResponse ,
+                                       ex:DivineCommandTheory ,
+                                       ex:MoralObligationImposedByCommands ;
+                          schema:datePublished 1999 .
+
+
+###  http://www.github.com/silvialx/Onto/Firth
+ex:Firth rdf:type owl:NamedIndividual ,
+                  ex:Philosopher ;
+         <http://www.github.com/argumentsontology/supports> ex:IdealObserverTheory ;
+         ex:created :EthicalAbsolutismAndTheIdealObserverTheory ;
+         rdfs:seeAlso <http://www.wikidata.org/entity/Q7356610> .
+
+
+###  http://www.github.com/silvialx/Onto/FittingAttitudeAnalysesCannotDistinguishRightFromWrongKindReasons
+ex:FittingAttitudeAnalysesCannotDistinguishRightFromWrongKindReasons rdf:type owl:NamedIndividual ,
+                                                                              <http://www.github.com/argumentsontology/Claim> ;
+                                                                     rdfs:label "Fitting-attitude and quasi-realist analyses of value cannot, by themselves, distinguish reasons of the right kind from reasons of the wrong kind."@en .
+
+
+###  http://www.github.com/silvialx/Onto/FittingAttitudeAnalysesDefineValueViaWarrantedProAttitudes
+ex:FittingAttitudeAnalysesDefineValueViaWarrantedProAttitudes rdf:type owl:NamedIndividual ,
+                                                                       <http://www.github.com/argumentsontology/Claim> ;
+                                                              rdfs:label "Fitting-attitude and quasi-realist analyses define value in terms of warranted pro-attitudes."@en .
+
+
+###  http://www.github.com/silvialx/Onto/Foot
+ex:Foot rdf:type owl:NamedIndividual ,
+                 ex:Philosopher ;
+        <http://www.github.com/argumentsontology/supports> ex:NeoAristotelianNaturalism ;
+        ex:created :NaturalGoodness ;
+        rdfs:seeAlso <http://www.wikidata.org/entity/Q297493> .
+
+
+###  http://www.github.com/silvialx/Onto/ForAnyProposedNaturalPropertyItRemainsASignificantOpenQuestionWhetherThatWhichHasItIsGood
+ex:ForAnyProposedNaturalPropertyItRemainsASignificantOpenQuestionWhetherThatWhichHasItIsGood rdf:type owl:NamedIndividual ,
+                                                                                                      <http://www.github.com/argumentsontology/Claim> ;
+                                                                                             rdfs:label "For any proposed natural property N, it remains a significant, open question whether something that is N is also good."@en .
+
+
+###  http://www.github.com/silvialx/Onto/Frege
+ex:Frege rdf:type owl:NamedIndividual ,
+                  ex:Philosopher ;
+         ex:created ex:FregeGeachProblem ;
+         rdfs:seeAlso <http://www.wikidata.org/entity/Q60028> .
+
+
+###  http://www.github.com/silvialx/Onto/FregeGeachProblem
+ex:FregeGeachProblem rdf:type owl:NamedIndividual ,
+                              <http://www.github.com/argumentsontology/Argument> ;
+                     <http://www.github.com/argumentsontology/hasConclusion> ex:MoralJudgmentsAreBeliefsNotAttitudes ;
+                     <http://www.github.com/argumentsontology/hasPremise> ex:MoralSentencesRetainTheSameMeaningWhenEmbeddedInUnassertedContexts ,
+                                                                          ex:NoncognitivistAnalysesExplainMoralUtterancesAsExpressionsOfAttitudeRatherThanTruthAptClaims ,
+                                                                          ex:OrdinaryMoralInferencesLikeModusPonensDependOnThisConstancyOfMeaning ;
+                     <http://www.github.com/argumentsontology/negates> ex:BlackburnExpressivism ,
+                                                                       ex:Emotivism ,
+                                                                       ex:GibbardNormExpressivism ,
+                                                                       ex:Prescriptivism ;
+                     <http://www.github.com/argumentsontology/supports> ex:Cognitivist ;
+                     rdfs:label "moral sentences keep the same meaning when embedded in unasserted contexts, such as the antecedent of a conditional, as they have when asserted outright, which is what makes ordinary moral inferences (modus ponens) valid; noncognitivist analyses, which explain moral utterances as expressions of attitude rather than truth-apt claims, struggle to explain this constancy of meaning across asserted and unasserted occurrences (Geach, following Frege)." .
+
+
+###  http://www.github.com/silvialx/Onto/Gauthier
+ex:Gauthier rdf:type owl:NamedIndividual ,
+                     ex:Philosopher ;
+            <http://www.github.com/argumentsontology/supports> ex:Contractualism ;
+            ex:created :MoralsByAgreement ;
+            rdfs:seeAlso <http://www.wikidata.org/entity/Q1174527> .
+
+
+###  http://www.github.com/silvialx/Onto/Geach
+ex:Geach rdf:type owl:NamedIndividual ,
+                  ex:Philosopher ;
+         ex:created ex:FregeGeachProblem ;
+         rdfs:seeAlso <http://www.wikidata.org/entity/Q725797> .
+
+
+###  http://www.github.com/silvialx/Onto/Gettier
+ex:Gettier rdf:type owl:NamedIndividual ,
+                    ex:Philosopher ;
+           ex:created ex:GettierProblemForMoralIntuitions .
+
+
+###  http://www.github.com/silvialx/Onto/GettierProblemForMoralIntuitions
+ex:GettierProblemForMoralIntuitions rdf:type owl:NamedIndividual ,
+                                             <http://www.github.com/argumentsontology/Argument> ;
+                                    <http://www.github.com/argumentsontology/hasConclusion> ex:SimpleIntuitionismFailsToSecureMoralKnowledge ;
+                                    <http://www.github.com/argumentsontology/hasPremise> ex:BeliefsTrueOnlyByAccidentDoNotConstituteKnowledge ,
+                                                                                         ex:IntuitionismTreatsSuchIntuitionsAsKnowledgeWithoutFurtherJustification ,
+                                                                                         ex:SomeMoralIntuitionsAreTrueOnlyByAccident ;
+                                    <http://www.github.com/argumentsontology/negates> ex:Intuitionist ,
+                                                                                      ex:RossianIntuitionism ;
+                                    <http://www.github.com/argumentsontology/supports> ex:Skeptic ;
+                                    rdfs:label "moral intuitions that are true but only accidentally track the relevant moral facts (e.g. through cultural conditioning that happens to be correct) look like they fail to constitute moral knowledge, threatening simple intuitionist accounts of moral epistemology." .
+
+
+###  http://www.github.com/silvialx/Onto/Gibbard
+ex:Gibbard rdf:type owl:NamedIndividual ,
+                    ex:Philosopher ;
+           <http://www.github.com/argumentsontology/supports> ex:GibbardNormExpressivism ;
+           ex:created :WiseChoicesAptFeelings ;
+           rdfs:seeAlso <http://www.wikidata.org/entity/Q4730627> .
+
+
+###  http://www.github.com/silvialx/Onto/GibbardNormExpressivism
+ex:GibbardNormExpressivism rdf:type owl:NamedIndividual ,
+                                    ex:ConsistentPosition ,
+                                    ex:MetaethicalPosition ;
+                           ex:actionMotivationSupposition ex:Internalist ;
+                           ex:cognitivistSupposition ex:Noncognitivist ;
+                           ex:epistemicSupposition ex:QuasiRealist ;
+                           ex:metaphysicalSupposition ex:Antirealist ;
+                           ex:necessaryCondition ex:truthMinimalism ;
+                           ex:representationSupposition ex:Antirepresentationalist ;
+                           ex:truthAptnessSupposition ex:NonTruthApt ;
+                           rdfs:comment "to judge an act rational or moral is to express acceptance of a system of norms (or a plan) governing action and feeling, not to represent a fact (Gibbard's norm-expressivism)." .
+
+
+###  http://www.github.com/silvialx/Onto/GodIsTheSubjectOfEthics
+ex:GodIsTheSubjectOfEthics rdf:type owl:NamedIndividual ,
+                                    <http://www.github.com/argumentsontology/Claim> ;
+                           rdfs:label "there is a distinction between right and good. The subject of ethics should be the good, intended as the will of God." .
+
+
+###  http://www.github.com/silvialx/Onto/GoodCannotBeAnalyticallyIdenticalToAnyNaturalProperty
+ex:GoodCannotBeAnalyticallyIdenticalToAnyNaturalProperty rdf:type owl:NamedIndividual ,
+                                                                  <http://www.github.com/argumentsontology/Claim> ;
+                                                         rdfs:label "'Good' cannot be analytically identical to any natural property."@en .
+
+
+###  http://www.github.com/silvialx/Onto/GroundingMoralAuthorityInAFurtherFactInvitesTheQuestionOfWhatGroundsThatFact
+ex:GroundingMoralAuthorityInAFurtherFactInvitesTheQuestionOfWhatGroundsThatFact rdf:type owl:NamedIndividual ,
+                                                                                         <http://www.github.com/argumentsontology/Claim> ;
+                                                                                rdfs:label "Grounding the authority of a moral requirement in a further fact invites the question of what grounds that further fact."@en .
+
+
+###  http://www.github.com/silvialx/Onto/Hare
+ex:Hare rdf:type owl:NamedIndividual ,
+                 ex:Philosopher ;
+        <http://www.github.com/argumentsontology/supports> ex:Prescriptivism ;
+        ex:created :TheLanguageOfMorals ;
+        rdfs:seeAlso <http://www.wikidata.org/entity/Q471923> .
+
+
+###  http://www.github.com/silvialx/Onto/Harman
+ex:Harman rdf:type owl:NamedIndividual ,
+                   ex:Philosopher ;
+          <http://www.github.com/argumentsontology/supports> ex:Relativism ;
+          ex:created ex:ExplanatoryImpotenceArgument ,
+                     ex:TheNatureOfMorality ;
+          rdfs:seeAlso <http://www.wikidata.org/entity/Q962148> .
+
+
+###  http://www.github.com/silvialx/Onto/Horgan
+ex:Horgan rdf:type owl:NamedIndividual ,
+                   ex:Philosopher ;
+          <http://www.github.com/argumentsontology/supports> ex:HybridExpressivism ;
+          ex:created ex:MoralTwinEarthArgument ,
+                     :NondescriptivistCognitivism ;
+          rdfs:seeAlso <http://www.wikidata.org/entity/Q1702848> .
+
+
+###  http://www.github.com/silvialx/Onto/HowToBeAMoralRealist
+ex:HowToBeAMoralRealist rdf:type owl:NamedIndividual ,
+                                 fabio:Book ;
+                        schema:about ex:NonReductiveNaturalism ,
+                                     ex:SimilaritiesInMoralityAndScience ;
+                        schema:datePublished 1988 .
+
+
+###  http://www.github.com/silvialx/Onto/Hume
+ex:Hume rdf:type owl:NamedIndividual ,
+                 ex:Philosopher ;
+        <http://www.github.com/argumentsontology/supports> ex:MoralSentimentalism ;
+        ex:created ex:HumeLaw ,
+                   ex:TreatiseOfHumanNature ;
+        rdfs:seeAlso <http://www.wikidata.org/entity/Q37160> .
+
+
+###  http://www.github.com/silvialx/Onto/HumeLaw
+ex:HumeLaw rdf:type owl:NamedIndividual ,
+                    <http://www.github.com/argumentsontology/Argument> ;
+           dcterms:creator ex:Hume ;
+           <http://www.github.com/argumentsontology/hasConclusion> ex:OughtCannotBeDerivedFromIsAlone ;
+           <http://www.github.com/argumentsontology/hasPremise> ex:DescriptivePremisesStateOnlyWhatIsTheCase ,
+                                                                ex:NoValidArgumentReachesAPurelyNormativeConclusionFromPurelyDescriptivePremises ,
+                                                                ex:NormativeConclusionsStateWhatOughtToBeTheCase ;
+           <http://www.github.com/argumentsontology/negates> ex:NaturalRealism ,
+                                                             ex:NonReductiveNaturalism ;
+           <http://www.github.com/argumentsontology/supports> ex:Noncognitivist ;
+           schema:about ex:HumeLaw ;
+           rdfs:label "no purely descriptive set of premises (statements of 'is') can logically entail a normative conclusion (a statement of 'ought') without at least one normative premise smuggled in; this gap tells against naturalist views that try to derive moral facts from natural ones, and is often read as support for noncognitivism (Hume, the is-ought gap)." .
+
+
+###  http://www.github.com/silvialx/Onto/HumeanConstructivism
+ex:HumeanConstructivism rdf:type owl:NamedIndividual ,
+                                 ex:ConsistentPosition ,
+                                 ex:MetaethicalPosition ;
+                        ex:actionMotivationSupposition ex:Internalist ;
+                        ex:cognitivistSupposition ex:Cognitivist ;
+                        ex:epistemicSupposition ex:ProceduralConstructivist ;
+                        ex:metaphysicalSupposition ex:MetaphysicalConstructivist ;
+                        ex:representationSupposition ex:Representationalist ;
+                        ex:truthAptnessSupposition ex:TruthApt ;
+                        rdfs:comment "normative truths are constituted by what follows from an agent's own evaluative attitudes under idealized coherence; motivated in part by an evolutionary debunking argument against realist alternatives (Sharon Street)." .
+
+
+###  http://www.github.com/silvialx/Onto/Hutcheson
+ex:Hutcheson rdf:type owl:NamedIndividual ,
+                      ex:Philosopher ;
+             <http://www.github.com/argumentsontology/supports> ex:MoralSentimentalism ;
+             ex:created :AnInquiryIntoTheOriginalOfOurIdeasOfBeautyAndVirtue ;
+             rdfs:seeAlso <http://www.wikidata.org/entity/Q316367> .
+
+
+###  http://www.github.com/silvialx/Onto/HybridExpressivism
+ex:HybridExpressivism rdf:type owl:NamedIndividual ,
+                               ex:ConsistentPosition ,
+                               ex:MetaethicalPosition ;
+                      ex:actionMotivationSupposition ex:Internalist ;
+                      ex:cognitivistSupposition ex:HybridTheorist ;
+                      ex:epistemicSupposition ex:QuasiRealist ;
+                      ex:metaphysicalSupposition ex:Antirealist ;
+                      ex:necessaryCondition ex:truthMinimalism ;
+                      ex:representationSupposition ex:Antirepresentationalist ;
+                      ex:truthAptnessSupposition ex:TruthApt ;
+                      rdfs:comment "moral assertions express a hybrid state with both descriptive and desire-like/expressive components, aiming to capture the truth-aptness of moral discourse while retaining an expressivist explanation of moral motivation (Ridge's ecumenical expressivism)." .
+
+
+###  http://www.github.com/silvialx/Onto/HybridTheorist
+ex:HybridTheorist rdf:type owl:NamedIndividual ,
+                           ex:Cognitivism ;
+                  ex:isConditionallyCompatibleWith ex:Cognitivist ,
+                                                   ex:Noncognitivist ;
+                  skos:definition "Hybrid theorism holds that moral judgments are hybrid states, combining belief-like descriptive content with attitude-like conative/expressive content (Ridge's ecumenical expressivism, Boisvert)." .
+
+
+###  http://www.github.com/silvialx/Onto/IdealObserverTheory
+ex:IdealObserverTheory rdf:type owl:NamedIndividual ,
+                                ex:ConsistentPosition ,
+                                ex:MetaethicalPosition ;
+                       ex:actionMotivationSupposition ex:Internalist ;
+                       ex:cognitivistSupposition ex:Cognitivist ;
+                       ex:epistemicSupposition ex:Empiricist ;
+                       ex:metaphysicalSupposition ex:Subjectivist ;
+                       ex:representationSupposition ex:Representationalist ;
+                       ex:truthAptnessSupposition ex:TruthApt ;
+                       rdfs:comment "x is good iff an ideal (fully informed, impartial, dispassionate) observer would approve of x; moral facts are mind-dependent but not arbitrary (Firth)." .
+
+
+###  http://www.github.com/silvialx/Onto/IfExpressivistsCanAssertEverythingRealistsAssertTheDisputeLosesSubstantiveContent
+ex:IfExpressivistsCanAssertEverythingRealistsAssertTheDisputeLosesSubstantiveContent rdf:type owl:NamedIndividual ,
+                                                                                              <http://www.github.com/argumentsontology/Claim> ;
+                                                                                     rdfs:label "If expressivists can assert everything realists assert, the dispute between them loses substantive content."@en .
+
+
+###  http://www.github.com/silvialx/Onto/IfGoodMeantThatPropertyAnalyticallyTheQuestionWouldBeTrivialOrClosed
+ex:IfGoodMeantThatPropertyAnalyticallyTheQuestionWouldBeTrivialOrClosed rdf:type owl:NamedIndividual ,
+                                                                                 <http://www.github.com/argumentsontology/Claim> ;
+                                                                        rdfs:label "If 'good' meant that natural property analytically, the question of whether something with it is good would be trivial or closed, not open."@en .
+
+
+###  http://www.github.com/silvialx/Onto/IfThatConnectionIsMerelyContingentItIsPuzzlingWhyMoralityShouldBeAuthoritative
+ex:IfThatConnectionIsMerelyContingentItIsPuzzlingWhyMoralityShouldBeAuthoritative rdf:type owl:NamedIndividual ,
+                                                                                           <http://www.github.com/argumentsontology/Claim> ;
+                                                                                  rdfs:label "If the connection between moral judgment and motivation is merely contingent, it becomes puzzling why moral considerations should be practically authoritative at all."@en .
+
+
+###  http://www.github.com/silvialx/Onto/InternalismBetterExplainsThePracticalAuthorityOfMoralRequirements
+ex:InternalismBetterExplainsThePracticalAuthorityOfMoralRequirements rdf:type owl:NamedIndividual ,
+                                                                              <http://www.github.com/argumentsontology/Claim> ;
+                                                                     rdfs:label "Internalism better explains the practical authority of moral requirements than externalism does."@en .
+
+
+###  http://www.github.com/silvialx/Onto/Internalist
+ex:Internalist rdf:type owl:NamedIndividual ,
+                        ex:ActionMotivation ;
+               ex:isIncompatibleWith ex:Externalist ;
+               skos:definition "the internalist view states that ethical judgements have a special internal relation to motivation, in that they are sufficient in-and-of-themselves to explain an individual's actions (Chrisman 2016)." .
+
+
+###  http://www.github.com/silvialx/Onto/IntuitionismTreatsSuchIntuitionsAsKnowledgeWithoutFurtherJustification
+ex:IntuitionismTreatsSuchIntuitionsAsKnowledgeWithoutFurtherJustification rdf:type owl:NamedIndividual ,
+                                                                                   <http://www.github.com/argumentsontology/Claim> ;
+                                                                          rdfs:label "Simple intuitionism treats self-evident moral intuitions as knowledge without requiring further justification of their reliability."@en .
+
+
+###  http://www.github.com/silvialx/Onto/Intuitionist
+ex:Intuitionist rdf:type owl:NamedIndividual ,
+                         ex:Epistemology ;
+                owl:differentFrom ex:Skeptic ;
+                ex:isIncompatibleWith ex:Antirealist ,
+                                      ex:Coherentist ,
+                                      ex:Empiricist ,
+                                      ex:Fictionalist ,
+                                      ex:NaturalRealism ,
+                                      ex:NonTruthApt ,
+                                      ex:Noncognitivist ,
+                                      ex:QuasiRealist ,
+                                      ex:Skeptic ;
+                skos:definition "It is the view that some truths can be reached non-inferentially, but through some other faculty." .
+
+
+###  http://www.github.com/silvialx/Onto/Joyce
+ex:Joyce rdf:type owl:NamedIndividual ,
+                  ex:Philosopher ;
+         <http://www.github.com/argumentsontology/supports> ex:MoralFictionalism ;
+         ex:created :TheMythOfMorality ;
+         rdfs:seeAlso <http://www.wikidata.org/entity/Q2149904> .
+
+
+###  http://www.github.com/silvialx/Onto/JudgmentInternalist
+ex:JudgmentInternalist rdf:type owl:NamedIndividual ,
+                                ex:ActionMotivation ;
+                       ex:isConditionallyCompatibleWith ex:Internalist ;
+                       ex:isIncompatibleWith ex:Externalist ;
+                       skos:definition "Judgement internalism holds that sincerely judging an act morally required is, absent irrationality or practical impairment, sufficient to motivate to some degree (Michael Smith's 'practicality requirement')." .
+
+
+###  http://www.github.com/silvialx/Onto/Kant
+ex:Kant rdf:type owl:NamedIndividual ,
+                 ex:Philosopher ;
+        <http://www.github.com/argumentsontology/supports> ex:KantianConstructivism ;
+        ex:created :GroundworkOfTheMetaphysicsOfMorals ;
+        rdfs:seeAlso <http://www.wikidata.org/entity/Q9312> .
+
+
+###  http://www.github.com/silvialx/Onto/KantianConstructivism
+ex:KantianConstructivism rdf:type owl:NamedIndividual ,
+                                  ex:ConsistentPosition ,
+                                  ex:MetaethicalPosition ;
+                         ex:actionMotivationSupposition ex:ExistenceInternalist ;
+                         ex:cognitivistSupposition ex:Cognitivist ;
+                         ex:epistemicSupposition ex:ProceduralConstructivist ;
+                         ex:metaphysicalSupposition ex:MetaphysicalConstructivist ;
+                         ex:representationSupposition ex:Representationalist ;
+                         ex:truthAptnessSupposition ex:TruthApt ;
+                         schema:about ex:NormativityRegressArgument ;
+                         rdfs:comment "normative truths are constructed by the standards that emerge from the correct exercise of practical reason itself (the categorical imperative procedure), not discovered as prior facts (Korsgaard)." .
+
+
+###  http://www.github.com/silvialx/Onto/Kierkegaard
+ex:Kierkegaard rdf:type owl:NamedIndividual ,
+                        ex:Philosopher ;
+               ex:created ex:AbrahamsDilemma ,
+                          ex:FearAndTrembling ;
+               rdfs:seeAlso <http://www.wikidata.org/entity/Q6512> .
+
+
+###  http://www.github.com/silvialx/Onto/Korsgaard
+ex:Korsgaard rdf:type owl:NamedIndividual ,
+                      ex:Philosopher ;
+             <http://www.github.com/argumentsontology/supports> ex:KantianConstructivism ;
+             ex:created ex:NormativityRegressArgument ,
+                        ex:TheSourcesOfNormativity ;
+             rdfs:seeAlso <http://www.wikidata.org/entity/Q467518> .
+
+
+###  http://www.github.com/silvialx/Onto/Mackie
+ex:Mackie rdf:type owl:NamedIndividual ,
+                   ex:Philosopher ;
+          <http://www.github.com/argumentsontology/supports> ex:ErrorTheory ;
+          ex:created ex:ArgumentFromDisagreement ,
+                     <http://www.github.com/silvialx/Onto/Ethics:InventingRight&Wrong> ,
+                     :ArgumentForQueerness ,
+                     :ArgumentForRelativity ;
+          rdfs:seeAlso <http://www.wikidata.org/entity/Q713642> .
+
+
+###  http://www.github.com/silvialx/Onto/MathematicalLogicalAndEpistemicKnowledgeIsNotUndermined
+ex:MathematicalLogicalAndEpistemicKnowledgeIsNotUndermined rdf:type owl:NamedIndividual ,
+                                                                    <http://www.github.com/argumentsontology/Claim> ;
+                                                           rdfs:label "Our knowledge of mathematics, logic, and epistemic reasons is not, in fact, undermined."@en .
+
+
+###  http://www.github.com/silvialx/Onto/McDowell
+ex:McDowell rdf:type owl:NamedIndividual ,
+                     ex:Philosopher ;
+            <http://www.github.com/argumentsontology/supports> ex:SensibilityTheory ;
+            ex:created :ValuesAndSecondaryQualities ;
+            rdfs:seeAlso <http://www.wikidata.org/entity/Q1252398> .
+
+
+###  http://www.github.com/silvialx/Onto/MetaphysicalConstructivist
+ex:MetaphysicalConstructivist rdf:type owl:NamedIndividual ,
+                                       ex:Metaphysics ;
+                              ex:isConditionallyCompatibleWith ex:Antirealist ;
+                              ex:isIncompatibleWith ex:DivineCommandRealism ,
+                                                    ex:NaturalRealism ,
+                                                    ex:NonnaturalRealism ,
+                                                    ex:Realist ;
+                              rdfs:comment "moral facts are not mind-independent, but are constructed by (idealized) procedures of practical reasoning rather than discovered; contrasted with both realism and simple mind-dependence." .
+
+
+###  http://www.github.com/silvialx/Onto/MichaelSmith
+ex:MichaelSmith rdf:type owl:NamedIndividual ,
+                         ex:Philosopher ;
+                <http://www.github.com/argumentsontology/supports> ex:JudgmentInternalist ,
+                                                                   ex:Nonnaturalism ;
+                ex:created :TheMoralProblem ;
+                rdfs:seeAlso <http://www.wikidata.org/entity/Q6828096> .
+
+
+###  http://www.github.com/silvialx/Onto/Moore
+ex:Moore rdf:type owl:NamedIndividual ,
+                  ex:Philosopher ;
+         <http://www.github.com/argumentsontology/supports> ex:Nonnaturalism ;
+         ex:created ex:OpenQuestionArgument ,
+                    ex:PrincipiaEthica ;
+         rdfs:seeAlso <http://www.wikidata.org/entity/Q295386> .
+
+
+###  http://www.github.com/silvialx/Onto/MoralBeliefsAreMassivelyShapedByEvolutionaryPressures
+ex:MoralBeliefsAreMassivelyShapedByEvolutionaryPressures rdf:type owl:NamedIndividual ,
+                                                                  <http://www.github.com/argumentsontology/Claim> ;
+                                                         rdfs:label "Our moral beliefs are massively shaped by evolutionary pressures.They act as a reflex, to help us respond to certain cituations (Street 2006, 127)."@en .
+
+
+###  http://www.github.com/silvialx/Onto/MoralConsiderationsAreTakenToBePracticallyAuthoritative
+ex:MoralConsiderationsAreTakenToBePracticallyAuthoritative rdf:type owl:NamedIndividual ,
+                                                                    <http://www.github.com/argumentsontology/Claim> ;
+                                                           rdfs:label "Moral considerations are, intuitively, practically authoritative for any agent who recognizes them."@en .
+
+
+###  http://www.github.com/silvialx/Onto/MoralDisagreementIsDeepAndIntractableAcrossCulturesAndHistory
+ex:MoralDisagreementIsDeepAndIntractableAcrossCulturesAndHistory rdf:type owl:NamedIndividual ,
+                                                                          <http://www.github.com/argumentsontology/Claim> ;
+                                                                 rdfs:label "Moral disagreement across cultures and history is deep and intractable."@en .
+
+
+###  http://www.github.com/silvialx/Onto/MoralFactsNeverFeatureInTheBestExplanationOfAnyObservation
+ex:MoralFactsNeverFeatureInTheBestExplanationOfAnyObservation rdf:type owl:NamedIndividual ,
+                                                                       <http://www.github.com/argumentsontology/Claim> ;
+                                                              rdfs:label "Moral facts never feature in the best explanation of any observation, including why we hold the moral beliefs we do."@en .
+
+
+###  http://www.github.com/silvialx/Onto/MoralFictionalism
+ex:MoralFictionalism rdf:type owl:NamedIndividual ,
+                              ex:MetaethicalPosition ;
+                     ex:cognitivistSupposition ex:Cognitivist ;
+                     ex:epistemicSupposition ex:Fictionalist ;
+                     ex:metaphysicalSupposition ex:Antirealist ;
+                     ex:representationSupposition ex:Representationalist ;
+                     ex:truthAptnessSupposition ex:TruthApt ;
+                     rdfs:comment "moral discourse is a useful fiction: moral sentences are genuinely truth-apt and, taken at face value, are typically false (there being no moral facts), but we are nonetheless warranted in continuing to engage in the practice as one engages with a fiction (Joyce)." .
+
+
+###  http://www.github.com/silvialx/Onto/MoralJudgmentsAreBeliefsNotAttitudes
+ex:MoralJudgmentsAreBeliefsNotAttitudes rdf:type owl:NamedIndividual ,
+                                                 <http://www.github.com/argumentsontology/Claim> ;
+                                        rdfs:label "Moral judgments are better treated as beliefs, which can fail to motivate, than as motivating attitudes."@en .
+
+
+###  http://www.github.com/silvialx/Onto/MoralObligationImposedByCommands
+ex:MoralObligationImposedByCommands rdf:type owl:NamedIndividual ,
+                                             <http://www.github.com/argumentsontology/Argument> ;
+                                    rdfs:label "Moral obligation is constituted by commands. What's good, therefore, is what God has commanded." .
+
+
+###  http://www.github.com/silvialx/Onto/MoralProgressArgument
+ex:MoralProgressArgument rdf:type owl:NamedIndividual ,
+                                  <http://www.github.com/argumentsontology/Argument> ;
+                         <http://www.github.com/argumentsontology/hasConclusion> ex:RelativismCannotAccountForGenuineMoralProgress ;
+                         <http://www.github.com/argumentsontology/hasPremise> ex:DescribingChangeAsProgressRequiresAFrameworkIndependentStandardOfCorrectness ,
+                                                                              ex:RelativismDeniesAnyFrameworkIndependentStandardOfMoralCorrectness ,
+                                                                              ex:WeAreStronglyInclinedToDescribeSomeMoralChangesAsProgress ;
+                         <http://www.github.com/argumentsontology/negates> ex:Relativist ;
+                         <http://www.github.com/argumentsontology/supports> ex:NonReductiveNaturalism ,
+                                                                            ex:Nonnaturalism ;
+                         rdfs:label "we are strongly inclined to describe changes like the abolition of slavery as moral progress and not mere change; this description is hard to make sense of without a standard of moral correctness that is not fixed by any single framework (Shafer-Landau, against relativism)." .
+
+
+###  http://www.github.com/silvialx/Onto/MoralPropertiesNecessarilySuperveneOnNaturalProperties
+ex:MoralPropertiesNecessarilySuperveneOnNaturalProperties rdf:type owl:NamedIndividual ,
+                                                                   <http://www.github.com/argumentsontology/Claim> ;
+                                                          rdfs:label "Moral properties necessarily supervene on natural properties."@en .
+
+
+###  http://www.github.com/silvialx/Onto/MoralRealismADefence
+ex:MoralRealismADefence rdf:type owl:NamedIndividual ,
+                                 fabio:Book ;
+                        schema:about ex:MoralProgressArgument ,
+                                     ex:Nonnaturalism ;
+                        schema:datePublished 2003 ;
+                        rdfs:seeAlso <http://www.wikidata.org/entity/Q123771701> .
+
+
+###  http://www.github.com/silvialx/Onto/MoralSentencesRetainTheSameMeaningWhenEmbeddedInUnassertedContexts
+ex:MoralSentencesRetainTheSameMeaningWhenEmbeddedInUnassertedContexts rdf:type owl:NamedIndividual ,
+                                                                               <http://www.github.com/argumentsontology/Claim> ;
+                                                                      rdfs:label "Moral sentences retain the same meaning when embedded in unasserted contexts, such as the antecedent of a conditional, as when asserted outright."@en .
+
+
+###  http://www.github.com/silvialx/Onto/MoralSentimentalism
+ex:MoralSentimentalism rdf:type owl:NamedIndividual ,
+                                ex:ConsistentPosition ,
+                                ex:MetaethicalPosition ;
+                       ex:actionMotivationSupposition ex:Internalist ;
+                       ex:cognitivistSupposition ex:Cognitivist ;
+                       ex:epistemicSupposition ex:Empiricist ;
+                       ex:metaphysicalSupposition ex:Subjectivist ;
+                       ex:representationSupposition ex:Representationalist ;
+                       ex:truthAptnessSupposition ex:TruthApt ;
+                       rdfs:comment "moral distinctions are perceived by a moral sense or sentiment of approval/disapproval rather than by reason alone; virtue is what a benevolent spectator's sentiments track (Hutcheson, Hume)." .
+
+
+###  http://www.github.com/silvialx/Onto/MoralStatementsExpressAttitudesAndCommands
+ex:MoralStatementsExpressAttitudesAndCommands rdf:type owl:NamedIndividual ,
+                                                       <http://www.github.com/argumentsontology/Argument> ;
+                                              <http://www.github.com/argumentsontology/hasPremise> :MoralStatementsAsImperatives ;
+                                              <http://www.github.com/argumentsontology/supports> ex:DifferenceInMoralityAndScience ;
+                                              rdfs:label "Moral Statements are used to express attitudes and to encourage, alter or redirect other people's aims (Stevenson 1944, 22)." .
+
+
+###  http://www.github.com/silvialx/Onto/MoralTermsDoNotSimplyPickOutWhateverNaturalPropertyRegulatesTheirUse
+ex:MoralTermsDoNotSimplyPickOutWhateverNaturalPropertyRegulatesTheirUse rdf:type owl:NamedIndividual ,
+                                                                                 <http://www.github.com/argumentsontology/Claim> ;
+                                                                        rdfs:label "Moral terms do not simply pick out whatever natural property regulates their use."@en .
+
+
+###  http://www.github.com/silvialx/Onto/MoralTwinEarthArgument
+ex:MoralTwinEarthArgument rdf:type owl:NamedIndividual ,
+                                   <http://www.github.com/argumentsontology/Argument> ;
+                          <http://www.github.com/argumentsontology/hasConclusion> ex:MoralTermsDoNotSimplyPickOutWhateverNaturalPropertyRegulatesTheirUse ;
+                          <http://www.github.com/argumentsontology/hasPremise> ex:CornellRealismHoldsMoralTermsPickOutWhateverNaturalPropertyRegulatesTheirUse ,
+                                                                               ex:TwinEarthSpeakersCanStillSubstantivelyMorallyDisagreeDespiteDifferentRegulatingProperties ,
+                                                                               ex:TwinEarthSpeakersUseTheSameMoralTermsRegulatedByDifferentNaturalProperties ;
+                          <http://www.github.com/argumentsontology/negates> ex:NonReductiveNaturalism ;
+                          <http://www.github.com/argumentsontology/supports> ex:HybridExpressivism ;
+                          rdfs:label "a Twin-Earth thought experiment (parallel to Putnam's for natural kind terms) argues that moral terms do not simply pick out whatever natural property regulates their use, since speakers with different regulating properties can still substantively morally disagree (Horgan & Timmons, against Cornell Realism)." .
+
+
+###  http://www.github.com/silvialx/Onto/Nagel
+ex:Nagel rdf:type owl:NamedIndividual ,
+                  ex:Philosopher ;
+         <http://www.github.com/argumentsontology/supports> ex:Nonnaturalism ;
+         ex:created :TheViewFromNowhere ;
+         rdfs:seeAlso <http://www.wikidata.org/entity/Q350239> .
+
+
+###  http://www.github.com/silvialx/Onto/NaturalRealism
+ex:NaturalRealism rdf:type owl:NamedIndividual ,
+                           ex:Metaphysics ;
+                  ex:isIncompatibleWith ex:Antirealist ,
+                                        ex:Antirepresentationalist ,
+                                        ex:Fictionalist ,
+                                        ex:Intuitionist ,
+                                        ex:NonTruthApt ,
+                                        ex:Noncognitivist ,
+                                        ex:NonnaturalRealism ,
+                                        ex:QuasiRealist ,
+                                        ex:Skeptic ;
+                  skos:definition "Natural realism holds that ethical statements are part of whatever we regard as natural." .
+
+
+###  http://www.github.com/silvialx/Onto/NeoAristotelianNaturalism
+ex:NeoAristotelianNaturalism rdf:type owl:NamedIndividual ,
+                                      ex:ConsistentPosition ,
+                                      ex:MetaethicalPosition ;
+                             ex:cognitivistSupposition ex:Cognitivist ;
+                             ex:epistemicSupposition ex:Empiricist ;
+                             ex:metaphysicalSupposition ex:NaturalRealism ;
+                             ex:representationSupposition ex:Representationalist ;
+                             ex:truthAptnessSupposition ex:TruthApt ;
+                             rdfs:comment "goodness in the practical sphere is a species of natural goodness, understood teleologically by reference to the life form of a species, as in judgments of natural goodness in biology (Foot, drawing on Aristotle)." .
+
+
+###  http://www.github.com/silvialx/Onto/NicomacheanEthics
+ex:NicomacheanEthics rdf:type owl:NamedIndividual ,
+                              fabio:Book ;
+                     schema:about ex:AkrasiaArgument ,
+                                  ex:NeoAristotelianNaturalism ;
+                     schema:datePublished -340 ;
+                     rdfs:seeAlso <http://www.wikidata.org/entity/Q474537> .
+
+
+###  http://www.github.com/silvialx/Onto/NoSingleObjectiveMoralOrderBestExplainsMoralDisagreement
+ex:NoSingleObjectiveMoralOrderBestExplainsMoralDisagreement rdf:type owl:NamedIndividual ,
+                                                                     <http://www.github.com/argumentsontology/Claim> ;
+                                                            rdfs:label "There is no single objective moral order; this best explains the depth and persistence of moral disagreement."@en .
+
+
+###  http://www.github.com/silvialx/Onto/NoValidArgumentReachesAPurelyNormativeConclusionFromPurelyDescriptivePremises
+ex:NoValidArgumentReachesAPurelyNormativeConclusionFromPurelyDescriptivePremises rdf:type owl:NamedIndividual ,
+                                                                                          <http://www.github.com/argumentsontology/Claim> ;
+                                                                                 rdfs:label "No valid argument can reach a purely normative conclusion from purely descriptive premises alone."@en .
+
+
+###  http://www.github.com/silvialx/Onto/NonNaturalismLeavesThisNecessaryConnectionMysterious
+ex:NonNaturalismLeavesThisNecessaryConnectionMysterious rdf:type owl:NamedIndividual ,
+                                                                 <http://www.github.com/argumentsontology/Claim> ;
+                                                        rdfs:label "Non-naturalism, which treats moral properties as distinct from natural ones, leaves this necessary connection mysterious."@en .
+
+
+###  http://www.github.com/silvialx/Onto/NonReductiveNaturalism
+ex:NonReductiveNaturalism rdf:type owl:NamedIndividual ,
+                                   ex:ConsistentPosition ,
+                                   ex:MetaethicalPosition ;
+                          ex:cognitivistSupposition ex:Cognitivist ;
+                          ex:epistemicSupposition ex:Coherentist ;
+                          ex:metaphysicalSupposition ex:NaturalRealism ;
+                          ex:representationSupposition ex:Representationalist ;
+                          ex:truthAptnessSupposition ex:TruthApt ;
+                          rdfs:comment "moral properties are natural properties, but not reducible by analytic definition; they are known synthetically, by inference to the best explanation, much like theoretical properties in science (Cornell Realism: Boyd, Sturgeon, Brink, Railton)." .
+
+
+###  http://www.github.com/silvialx/Onto/NonTruthApt
+ex:NonTruthApt rdf:type owl:NamedIndividual ,
+                        ex:TruthAptness ;
+               owl:differentFrom ex:TruthApt ;
+               ex:isIncompatibleWith ex:Cognitivist ,
+                                     ex:Coherentist ,
+                                     ex:Intuitionist ,
+                                     ex:NaturalRealism ,
+                                     ex:NonnaturalRealism ,
+                                     ex:Realist ,
+                                     ex:TruthApt ;
+               skos:definition "Non truth-aptness of statements like \"murder is wrong\" entail that such statements are neither truth nor false; in fact, they cannot have any truth value." .
+
+
+###  http://www.github.com/silvialx/Onto/NoncognitivismEntailsMotivationalGuarantee
+ex:NoncognitivismEntailsMotivationalGuarantee rdf:type owl:NamedIndividual ,
+                                                       <http://www.github.com/argumentsontology/Claim> ;
+                                              rdfs:label "Noncognitivism holds that judging an act right just is having a motivating pro-attitude toward it, so this gap should be impossible."@en .
+
+
+###  http://www.github.com/silvialx/Onto/Noncognitivist
+ex:Noncognitivist rdf:type owl:NamedIndividual ,
+                           ex:Cognitivism ;
+                  ex:isIncompatibleWith ex:Cognitivist ,
+                                        ex:Coherentist ,
+                                        ex:Empiricist ,
+                                        ex:Intuitionist ,
+                                        ex:NaturalRealism ,
+                                        ex:NonnaturalRealism ,
+                                        ex:Realist ,
+                                        ex:Representationalist ;
+                  skos:definition "Non cognitivism holds that the mental states expressed by ethical statements are attitudes, rather than beliefs." .
+
+
+###  http://www.github.com/silvialx/Onto/NoncognitivistAnalysesExplainMoralUtterancesAsExpressionsOfAttitudeRatherThanTruthAptClaims
+ex:NoncognitivistAnalysesExplainMoralUtterancesAsExpressionsOfAttitudeRatherThanTruthAptClaims rdf:type owl:NamedIndividual ,
+                                                                                                        <http://www.github.com/argumentsontology/Claim> ;
+                                                                                               rdfs:label "Noncognitivist analyses explain moral utterances as expressions of attitude rather than as truth-apt claims."@en .
+
+
+###  http://www.github.com/silvialx/Onto/NonnaturalRealism
+ex:NonnaturalRealism rdf:type owl:NamedIndividual ,
+                              ex:Metaphysics ;
+                     ex:isIncompatibleWith ex:Antirealist ,
+                                           ex:Antirepresentationalist ,
+                                           ex:Empiricist ,
+                                           ex:Fictionalist ,
+                                           ex:NaturalRealism ,
+                                           ex:NonTruthApt ,
+                                           ex:Noncognitivist ,
+                                           ex:QuasiRealist ,
+                                           ex:Skeptic ;
+                     skos:definition "Nonnatural realism holds that, even though ethical facts are part of reality, they are not natural facts." .
+
+
+###  http://www.github.com/silvialx/Onto/Nonnaturalism
+ex:Nonnaturalism rdf:type owl:NamedIndividual ,
+                          ex:ConsistentPosition ,
+                          ex:MetaethicalPosition ;
+                 ex:cognitivistSupposition ex:Cognitivist ;
+                 ex:epistemicSupposition ex:Intuitionist ;
+                 ex:metaphysicalSupposition ex:NonnaturalRealism ;
+                 ex:representationSupposition ex:Representationalist ;
+                 ex:truthAptnessSupposition ex:TruthApt ;
+                 rdfs:comment "\"actionMotivation\" is not stated because there are variants of Nonnaturalism which support both Internalism and Externalism." .
+
+
+###  http://www.github.com/silvialx/Onto/NormativeAuthorityMustBeConstitutedByRationalSelfLegislation
+ex:NormativeAuthorityMustBeConstitutedByRationalSelfLegislation rdf:type owl:NamedIndividual ,
+                                                                         <http://www.github.com/argumentsontology/Claim> ;
+                                                                rdfs:label "The authority of moral requirements must be constituted by an agent's own rational self-legislation."@en .
+
+
+###  http://www.github.com/silvialx/Onto/NormativeConclusionsStateWhatOughtToBeTheCase
+ex:NormativeConclusionsStateWhatOughtToBeTheCase rdf:type owl:NamedIndividual ,
+                                                          <http://www.github.com/argumentsontology/Claim> ;
+                                                 rdfs:label "Normative conclusions state what ought to be the case."@en .
+
+
+###  http://www.github.com/silvialx/Onto/NormativityRegressArgument
+ex:NormativityRegressArgument rdf:type owl:NamedIndividual ,
+                                       <http://www.github.com/argumentsontology/Argument> ;
+                              <http://www.github.com/argumentsontology/hasConclusion> ex:NormativeAuthorityMustBeConstitutedByRationalSelfLegislation ;
+                              <http://www.github.com/argumentsontology/hasPremise> ex:GroundingMoralAuthorityInAFurtherFactInvitesTheQuestionOfWhatGroundsThatFact ,
+                                                                                   ex:OnlySelfLegislatedRequirementsOfRationalAgencyAvoidTheRegress ,
+                                                                                   ex:ThisQuestionThreatensAnInfiniteRegressOrABruteStoppingPoint ;
+                              <http://www.github.com/argumentsontology/negates> ex:Nonnaturalism ,
+                                                                                ex:Realist ;
+                              <http://www.github.com/argumentsontology/supports> ex:KantianConstructivism ,
+                                                                                 ex:QuietistMetaethics ;
+                              rdfs:label "any attempt to ground the authority of moral requirements in a further fact threatens a regress or a brute stopping point; only requirements that are self-legislated by rational agency avoid this regress, motivating a constructivist account of normativity (Korsgaard)." .
+
+
+###  http://www.github.com/silvialx/Onto/OnWhatMatters
+ex:OnWhatMatters rdf:type owl:NamedIndividual ,
+                          fabio:Book ;
+                 schema:about ex:Nonnaturalism ,
+                              ex:ParfitTrivialityObjection ;
+                 schema:datePublished 2011 .
+
+
+###  http://www.github.com/silvialx/Onto/OnlySelfLegislatedRequirementsOfRationalAgencyAvoidTheRegress
+ex:OnlySelfLegislatedRequirementsOfRationalAgencyAvoidTheRegress rdf:type owl:NamedIndividual ,
+                                                                          <http://www.github.com/argumentsontology/Claim> ;
+                                                                 rdfs:label "Only requirements that are self-legislated by rational agency avoid this regress."@en .
+
+
+###  http://www.github.com/silvialx/Onto/OpenQuestionArgument
+ex:OpenQuestionArgument rdf:type owl:NamedIndividual ,
+                                 <http://www.github.com/argumentsontology/Argument> ;
+                        <http://www.github.com/argumentsontology/hasConclusion> ex:GoodCannotBeAnalyticallyIdenticalToAnyNaturalProperty ;
+                        <http://www.github.com/argumentsontology/hasPremise> ex:ForAnyProposedNaturalPropertyItRemainsASignificantOpenQuestionWhetherThatWhichHasItIsGood ,
+                                                                             ex:IfGoodMeantThatPropertyAnalyticallyTheQuestionWouldBeTrivialOrClosed ,
+                                                                             ex:TheQuestionIsNeverTrivialOrClosedForAnyProposedNaturalProperty ;
+                        <http://www.github.com/argumentsontology/negates> ex:NaturalRealism ,
+                                                                          ex:ReductiveNaturalism ;
+                        <http://www.github.com/argumentsontology/supports> ex:BlackburnExpressivism ,
+                                                                           ex:Emotivism ,
+                                                                           ex:Nonnaturalism ;
+                        rdfs:label "for any proposed natural property N that 'good' is claimed to mean, it remains a significant, open question whether something that is N is also good, whereas a genuine analytic identity would make the question trivial or closed; this shows 'good' cannot be reductively defined in natural terms (Moore, against reductive naturalism)." .
+
+
+###  http://www.github.com/silvialx/Onto/OrdinaryMoralInferencesLikeModusPonensDependOnThisConstancyOfMeaning
+ex:OrdinaryMoralInferencesLikeModusPonensDependOnThisConstancyOfMeaning rdf:type owl:NamedIndividual ,
+                                                                                 <http://www.github.com/argumentsontology/Claim> ;
+                                                                        rdfs:label "Ordinary moral inferences, such as modus ponens, depend on this constancy of meaning across asserted and unasserted occurrences."@en .
+
+
+###  http://www.github.com/silvialx/Onto/OughtCannotBeDerivedFromIsAlone
+ex:OughtCannotBeDerivedFromIsAlone rdf:type owl:NamedIndividual ,
+                                            <http://www.github.com/argumentsontology/Claim> ;
+                                   rdfs:label "'Ought' cannot be derived from 'is' alone."@en .
+
+
+###  http://www.github.com/silvialx/Onto/Parfit
+ex:Parfit rdf:type owl:NamedIndividual ,
+                   ex:Philosopher ;
+          <http://www.github.com/argumentsontology/supports> ex:Nonnaturalism ;
+          ex:created ex:OnWhatMatters ,
+                     ex:ParfitTrivialityObjection ;
+          rdfs:seeAlso <http://www.wikidata.org/entity/Q962160> .
+
+
+###  http://www.github.com/silvialx/Onto/ParfitTrivialityObjection
+ex:ParfitTrivialityObjection rdf:type owl:NamedIndividual ,
+                                      <http://www.github.com/argumentsontology/Argument> ;
+                             <http://www.github.com/argumentsontology/hasConclusion> ex:TheExpressivistRealistDisputeBecomesMerelyVerbalOrTrivial ;
+                             <http://www.github.com/argumentsontology/hasPremise> ex:CreepingMinimalismErodesAnyRemainingDifferenceBetweenTheViews ,
+                                                                                  ex:IfExpressivistsCanAssertEverythingRealistsAssertTheDisputeLosesSubstantiveContent ,
+                                                                                  ex:QuasiRealistsCanEarnTheRightToEveryRealistSoundingSentence ;
+                             <http://www.github.com/argumentsontology/negates> ex:BlackburnExpressivism ,
+                                                                               ex:GibbardNormExpressivism ;
+                             rdfs:label "quasi-realist expressivists can 'earn the right' to every realist-sounding sentence, making the dispute between expressivism and realism merely verbal or trivial once creeping minimalism has run its course (Parfit's objection to quasi-realism)." .
+
+
+###  http://www.github.com/silvialx/Onto/Particularism
+ex:Particularism rdf:type owl:NamedIndividual ,
+                          ex:ConsistentPosition ,
+                          ex:MetaethicalPosition ;
+                 ex:actionMotivationSupposition ex:Internalist ;
+                 ex:cognitivistSupposition ex:Cognitivist ;
+                 ex:epistemicSupposition ex:Intuitionist ;
+                 ex:metaphysicalSupposition ex:Realist ;
+                 ex:representationSupposition ex:Representationalist ;
+                 ex:truthAptnessSupposition ex:TruthApt ;
+                 rdfs:comment "the moral relevance of a feature is holistic and context-sensitive; there need be no finite set of exceptionless general principles codifying right action (Dancy)." .
+
+
+###  http://www.github.com/silvialx/Onto/PositsThatNeverExplainAnythingGiveNoReasonToBelieveInThem
+ex:PositsThatNeverExplainAnythingGiveNoReasonToBelieveInThem rdf:type owl:NamedIndividual ,
+                                                                      <http://www.github.com/argumentsontology/Claim> ;
+                                                             rdfs:label "Positing entities that never feature in any best explanation gives us no reason to believe those entities exist."@en .
+
+
+###  http://www.github.com/silvialx/Onto/Prescriptivism
+ex:Prescriptivism rdf:type owl:NamedIndividual ,
+                           ex:ConsistentPosition ,
+                           ex:MetaethicalPosition ;
+                  ex:actionMotivationSupposition ex:Internalist ;
+                  ex:cognitivistSupposition ex:Noncognitivist ;
+                  ex:epistemicSupposition ex:Skeptic ;
+                  ex:metaphysicalSupposition ex:Antirealist ;
+                  ex:representationSupposition ex:Antirepresentationalist ;
+                  ex:truthAptnessSupposition ex:NonTruthApt ;
+                  rdfs:comment "moral judgments are universalizable prescriptions (a species of imperative), not descriptions; to judge that one ought to phi is to prescribe, universally, that one phi (Hare)." .
+
+
+###  http://www.github.com/silvialx/Onto/Prichard
+ex:Prichard rdf:type owl:NamedIndividual ,
+                     ex:Philosopher ;
+            <http://www.github.com/argumentsontology/supports> ex:RossianIntuitionism ;
+            ex:created ex:WhyBeMoralArgument ,
+                       :DoesMoralPhilosophyRestOnAMistake ;
+            rdfs:seeAlso <http://www.wikidata.org/entity/Q3498726> .
+
+
+###  http://www.github.com/silvialx/Onto/PrincipiaEthica
+ex:PrincipiaEthica rdf:type owl:NamedIndividual ,
+                            fabio:Book ;
+                   schema:about ex:OpenQuestionArgument ;
+                   schema:datePublished 1903 ;
+                   rdfs:seeAlso <http://www.wikidata.org/entity/Q2344885> .
+
+
+###  http://www.github.com/silvialx/Onto/ProceduralConstructivist
+ex:ProceduralConstructivist rdf:type owl:NamedIndividual ,
+                                     ex:Epistemology ;
+                            ex:isConditionallyCompatibleWith ex:Coherentist ;
+                            ex:isIncompatibleWith ex:Empiricist ,
+                                                  ex:Fictionalist ,
+                                                  ex:Intuitionist ,
+                                                  ex:Skeptic ;
+                            skos:definition "moral knowledge is secured not by tracking mind-independent facts but by correctly following a rationally mandated procedure of deliberation or choice." .
+
+
+###  http://www.github.com/silvialx/Onto/QuasiRealist
+ex:QuasiRealist rdf:type owl:NamedIndividual ,
+                         ex:Epistemology ;
+                ex:isConditionallyCompatibleWith ex:Realist ;
+                ex:isIncompatibleWith ex:Cognitivist ,
+                                      ex:Empiricist ,
+                                      ex:Intuitionist ,
+                                      ex:NaturalRealism ,
+                                      ex:NonnaturalRealism ,
+                                      ex:truthCorrespondentism ;
+                ex:necessaryCondition ex:truthMinimalism ;
+                skos:definition "Quasi-realism claims that although it is not wrong to claim statements such as \"it is a fact that lying is wrong\", but it would be wrong to say that ethical statement belong to a full an final metaphysical representation of what reality is like." .
+
+
+###  http://www.github.com/silvialx/Onto/QuasiRealistsCanEarnTheRightToEveryRealistSoundingSentence
+ex:QuasiRealistsCanEarnTheRightToEveryRealistSoundingSentence rdf:type owl:NamedIndividual ,
+                                                                       <http://www.github.com/argumentsontology/Claim> ;
+                                                              rdfs:label "Quasi-realist expressivists can 'earn the right' to assert every realist-sounding sentence."@en .
+
+
+###  http://www.github.com/silvialx/Onto/Quietist
+ex:Quietist rdf:type owl:NamedIndividual ,
+                     ex:Metaphysics ;
+            ex:isIncompatibleWith ex:Antirealist ,
+                                  ex:Realist ;
+            skos:definition "Quiteism rejects the realism/anti-realism question itself as confused or as collapsing into first-order ethical claims once properly understood (a Wittgensteinian/Scanlonian move)." .
+
+
+###  http://www.github.com/silvialx/Onto/QuietistMetaethics
+ex:QuietistMetaethics rdf:type owl:NamedIndividual ,
+                               ex:ConsistentPosition ,
+                               ex:MetaethicalPosition ;
+                      ex:cognitivistSupposition ex:Cognitivist ;
+                      ex:epistemicSupposition ex:ReflectiveEquilibriumist ;
+                      ex:metaphysicalSupposition ex:Quietist ;
+                      ex:representationSupposition ex:Representationalist ;
+                      ex:truthAptnessSupposition ex:TruthApt ;
+                      rdfs:comment "first-order moral claims can be fully warranted without answering, or even needing to answer, the traditional metaphysical question of whether moral facts are 'mind-independent'; the question itself may rest on a confusion." .
+
+
+###  http://www.github.com/silvialx/Onto/Railton
+ex:Railton rdf:type owl:NamedIndividual ,
+                    ex:Philosopher ;
+           <http://www.github.com/argumentsontology/supports> ex:NonReductiveNaturalism ;
+           ex:created :MoralRealism ;
+           rdfs:seeAlso <http://www.wikidata.org/entity/Q429743> .
+
+
+###  http://www.github.com/silvialx/Onto/RealismMustExplainDisagreementAsWidespreadError
+ex:RealismMustExplainDisagreementAsWidespreadError rdf:type owl:NamedIndividual ,
+                                                            <http://www.github.com/argumentsontology/Claim> ;
+                                                   rdfs:label "If moral realism is true, this disagreement must be explained as widespread error on the part of the disputants."@en .
+
+
+###  http://www.github.com/silvialx/Onto/Realist
+ex:Realist rdf:type owl:NamedIndividual ,
+                    ex:Metaphysics ;
+           ex:isIncompatibleWith ex:Fictionalist ,
+                                 ex:NonTruthApt ,
+                                 ex:Noncognitivist ,
+                                 ex:Skeptic ;
+           skos:definition "Realism holds that ethical facts obtain objectivity, in the sense that, in one way or another, ethical facts are \"out there\" as part of reality." .
+
+
+###  http://www.github.com/silvialx/Onto/RealistConfidenceInMoralBeliefsIsUnjustified
+ex:RealistConfidenceInMoralBeliefsIsUnjustified rdf:type owl:NamedIndividual ,
+                                                         <http://www.github.com/argumentsontology/Claim> ;
+                                                rdfs:label "Realist confidence in our moral beliefs is unjustified (Street 2006, 122)."@en .
+
+
+###  http://www.github.com/silvialx/Onto/ReductiveNaturalism
+ex:ReductiveNaturalism rdf:type owl:NamedIndividual ,
+                                ex:ConsistentPosition ,
+                                ex:MetaethicalPosition ;
+                       ex:cognitivistSupposition ex:Cognitivist ;
+                       ex:epistemicSupposition ex:Empiricist ;
+                       ex:metaphysicalSupposition ex:NaturalRealism ;
+                       ex:representationSupposition ex:Representationalist ;
+                       ex:truthAptnessSupposition ex:TruthApt ;
+                       rdfs:comment "moral terms are synonymous with, or analytically reducible to, some set of natural (e.g. psychological or sociological) terms (the classical naturalism Moore's Open Question Argument targets)." .
+
+
+###  http://www.github.com/silvialx/Onto/ReflectionDestroysKnowledge
+ex:ReflectionDestroysKnowledge rdf:type owl:NamedIndividual ,
+                                        <http://www.github.com/argumentsontology/Argument> ;
+                               <http://www.github.com/argumentsontology/hasPremise> :CultureAndEthicalKnowledge ;
+                               <http://www.github.com/argumentsontology/supports> ex:Relativism ;
+                               rdfs:label "Of we accept that there can be ethical knowledge within a culture without comparing the culture one belongs to with another, and if we accept the obvious truth that reflection characteristially disturbs, unseats, or replace those traditional concepts, then we reach the notably un-Socratic conclusion that, in ethics, reflection can destroy knowledge." .
+
+
+###  http://www.github.com/silvialx/Onto/ReflectiveEquilibrium
+ex:ReflectiveEquilibrium rdf:type owl:NamedIndividual ,
+                                  <http://www.github.com/argumentsontology/Claim> ;
+                         rdfs:label "Moral reasoning is a process that begins with moral presuppositions and proceeds by negotiating conflicting presuppositions. This process is what \"constructs\" complex, individual or social, moral or ethical systems." .
+
+
+###  http://www.github.com/silvialx/Onto/ReflectiveEquilibriumist
+ex:ReflectiveEquilibriumist rdf:type owl:NamedIndividual ,
+                                     ex:Epistemology ;
+                            ex:isConditionallyCompatibleWith ex:Coherentist ,
+                                                             ex:Intuitionist ;
+                            ex:isIncompatibleWith ex:Empiricist ,
+                                                  ex:Fictionalist ,
+                                                  ex:Skeptic ;
+                            skos:definition "moral knowledge (or warranted moral belief) results from a Rawlsian process of mutually adjusting general principles and particular judgments until they cohere." .
+
+
+###  http://www.github.com/silvialx/Onto/Relativism
+ex:Relativism rdf:type owl:NamedIndividual ,
+                       ex:ConsistentPosition ,
+                       ex:MetaethicalPosition ;
+              ex:actionMotivationSupposition ex:Internalist ;
+              ex:cognitivistSupposition ex:Cognitivist ;
+              ex:epistemicSupposition ex:Coherentist ;
+              ex:metaphysicalSupposition ex:Relativist ;
+              ex:representationSupposition ex:Representationalist ;
+              ex:truthAptnessSupposition ex:TruthApt ;
+              rdfs:comment "moral claims are true or false only relative to the standards of a given moral framework; 'ought' functions like an inherently relational, agreement-relative predicate (Harman's relativism about moral 'oughts')." .
+
+
+###  http://www.github.com/silvialx/Onto/RelativismCannotAccountForGenuineMoralProgress
+ex:RelativismCannotAccountForGenuineMoralProgress rdf:type owl:NamedIndividual ,
+                                                           <http://www.github.com/argumentsontology/Claim> ;
+                                                  rdfs:label "Relativism cannot account for genuine moral progress."@en .
+
+
+###  http://www.github.com/silvialx/Onto/RelativismDeniesAnyFrameworkIndependentStandardOfMoralCorrectness
+ex:RelativismDeniesAnyFrameworkIndependentStandardOfMoralCorrectness rdf:type owl:NamedIndividual ,
+                                                                              <http://www.github.com/argumentsontology/Claim> ;
+                                                                     rdfs:label "Relativism denies that there is any framework-independent standard of moral correctness."@en .
+
+
+###  http://www.github.com/silvialx/Onto/Relativist
+ex:Relativist rdf:type owl:NamedIndividual ,
+                       ex:Metaphysics ;
+              ex:isConditionallyCompatibleWith ex:Antirealist ;
+              ex:isIncompatibleWith ex:DivineCommandRealism ,
+                                    ex:NaturalRealism ,
+                                    ex:NonnaturalRealism ,
+                                    ex:Realist ;
+              skos:definition "Relativism holds that moral facts, if any, hold only relative to a framework, culture, or individual code; there is no framework-independent moral truth." .
+
+
+###  http://www.github.com/silvialx/Onto/Representationalist
+ex:Representationalist rdf:type owl:NamedIndividual ,
+                                ex:Representationalism ;
+                       ex:isIncompatibleWith ex:Antirepresentationalist ,
+                                             ex:NonTruthApt ,
+                                             ex:Noncognitivist ,
+                                             ex:QuasiRealist ;
+                       skos:definition "Representationalism holds that ethical statements such as \"murder is wrong\" represent a way reality is or could be." .
+
+
+###  http://www.github.com/silvialx/Onto/Revelationist
+ex:Revelationist rdf:type owl:NamedIndividual ,
+                          ex:Epistemology ;
+                 ex:isConditionallyCompatibleWith ex:Intuitionist ;
+                 ex:isIncompatibleWith ex:Empiricist ,
+                                       ex:Fictionalist ,
+                                       ex:Skeptic ;
+                 skos:definition "moral knowledge is (at least in part) grounded in divine revelation, scripture, or religious testimony rather than in unaided reason or experience alone." .
+
+
+###  http://www.github.com/silvialx/Onto/Ridge
+ex:Ridge rdf:type owl:NamedIndividual ,
+                  ex:Philosopher ;
+         <http://www.github.com/argumentsontology/supports> ex:HybridExpressivism ;
+         ex:created :EcumenicalExpressivism .
+
+
+###  http://www.github.com/silvialx/Onto/Ross
+ex:Ross rdf:type owl:NamedIndividual ,
+                 ex:Philosopher ;
+        <http://www.github.com/argumentsontology/supports> ex:RossianIntuitionism ;
+        ex:created :TheRightAndTheGood ;
+        rdfs:seeAlso <http://www.wikidata.org/entity/Q1364954> .
+
+
+###  http://www.github.com/silvialx/Onto/RossianIntuitionism
+ex:RossianIntuitionism rdf:type owl:NamedIndividual ,
+                                ex:ConsistentPosition ,
+                                ex:MetaethicalPosition ;
+                       ex:actionMotivationSupposition ex:Internalist ;
+                       ex:cognitivistSupposition ex:Cognitivist ;
+                       ex:epistemicSupposition ex:Intuitionist ;
+                       ex:metaphysicalSupposition ex:NonnaturalRealism ;
+                       ex:representationSupposition ex:Representationalist ;
+                       ex:truthAptnessSupposition ex:TruthApt ;
+                       rdfs:comment "there is an irreducible plurality of self-evident prima facie duties (fidelity, non-maleficence, beneficence, justice, etc.), known by rational intuition and weighed, not derived, against one another in particular cases (Ross, building on Prichard)." .
+
+
+###  http://www.github.com/silvialx/Onto/Scanlon
+ex:Scanlon rdf:type owl:NamedIndividual ,
+                    ex:Philosopher ;
+           <http://www.github.com/argumentsontology/supports> ex:Contractualism ,
+                                                              ex:QuietistMetaethics ;
+           ex:created :WhatWeOweToEachOther ;
+           rdfs:seeAlso <http://www.wikidata.org/entity/Q1773977> .
+
+
+###  http://www.github.com/silvialx/Onto/ScientificPositsEarnTheirPlaceByFeaturingInBestExplanations
+ex:ScientificPositsEarnTheirPlaceByFeaturingInBestExplanations rdf:type owl:NamedIndividual ,
+                                                                        <http://www.github.com/argumentsontology/Claim> ;
+                                                               rdfs:label "Scientific posits earn their place in our ontology by featuring in the best explanation of observations."@en .
+
+
+###  http://www.github.com/silvialx/Onto/SecondaryQualityRealism
+ex:SecondaryQualityRealism rdf:type owl:NamedIndividual ,
+                                    ex:Metaphysics ;
+                           ex:isConditionallyCompatibleWith ex:NaturalRealism ;
+                           ex:isIncompatibleWith ex:Antirealist ,
+                                                 ex:DivineCommandRealism ,
+                                                 ex:NonnaturalRealism ;
+                           skos:definition "Secondary Quality Realism holds that moral properties are response-dependent in the way secondary qualities (like colour) are: real, but only intelligible in relation to the responses of a suitably sensitive perceiver (McDowell, Wiggins)." .
+
+
+###  http://www.github.com/silvialx/Onto/SensibilityTheory
+ex:SensibilityTheory rdf:type owl:NamedIndividual ,
+                              ex:ConsistentPosition ,
+                              ex:MetaethicalPosition ;
+                     ex:actionMotivationSupposition ex:Internalist ;
+                     ex:cognitivistSupposition ex:Cognitivist ;
+                     ex:epistemicSupposition ex:Intuitionist ;
+                     ex:metaphysicalSupposition ex:SecondaryQualityRealism ;
+                     ex:representationSupposition ex:Representationalist ;
+                     ex:truthAptnessSupposition ex:TruthApt ;
+                     rdfs:comment "moral properties are response-dependent in the manner of secondary qualities: perceptible only by a properly cultivated moral sensibility, yet genuinely predicated of the world (McDowell, Wiggins)." .
+
+
+###  http://www.github.com/silvialx/Onto/ShaferLandau
+ex:ShaferLandau rdf:type owl:NamedIndividual ,
+                         ex:Philosopher ;
+                <http://www.github.com/argumentsontology/supports> ex:Nonnaturalism ;
+                ex:created ex:MoralProgressArgument ,
+                           ex:MoralRealismADefence ;
+                rdfs:seeAlso <http://www.wikidata.org/entity/Q7381231> .
+
+
+###  http://www.github.com/silvialx/Onto/Sidgwick
+ex:Sidgwick rdf:type owl:NamedIndividual ,
+                     ex:Philosopher ;
+            <http://www.github.com/argumentsontology/supports> ex:Nonnaturalism ;
+            ex:created :TheMethodsOfEthics ;
+            rdfs:seeAlso <http://www.wikidata.org/entity/Q433076> .
+
+
+###  http://www.github.com/silvialx/Onto/SimilaritiesInMoralityAndScience
+ex:SimilaritiesInMoralityAndScience rdf:type owl:NamedIndividual ,
+                                             <http://www.github.com/argumentsontology/Argument> ;
+                                    <http://www.github.com/argumentsontology/hasPremise> ex:ReflectiveEquilibrium ,
+                                                                                         :ObservationAndMorality ;
+                                    <http://www.github.com/argumentsontology/negates> ex:DifferenceInMoralityAndScience ;
+                                    <http://www.github.com/argumentsontology/supports> ex:NonReductiveNaturalism ;
+                                    rdfs:label "Moral inquiry is no different from scientific inquiry, because \"goodness\" is a natural property similar to the ones studied by social sciences." .
+
+
+###  http://www.github.com/silvialx/Onto/SimpleIntuitionismFailsToSecureMoralKnowledge
+ex:SimpleIntuitionismFailsToSecureMoralKnowledge rdf:type owl:NamedIndividual ,
+                                                          <http://www.github.com/argumentsontology/Claim> ;
+                                                 rdfs:label "Simple intuitionist accounts of moral epistemology fail to secure moral knowledge."@en .
+
+
+###  http://www.github.com/silvialx/Onto/SimpleSubjectivism
+ex:SimpleSubjectivism rdf:type owl:NamedIndividual ,
+                               ex:ConsistentPosition ,
+                               ex:MetaethicalPosition ;
+                      ex:actionMotivationSupposition ex:Internalist ;
+                      ex:cognitivistSupposition ex:Cognitivist ;
+                      ex:epistemicSupposition ex:Empiricist ;
+                      ex:metaphysicalSupposition ex:Subjectivist ;
+                      ex:representationSupposition ex:Representationalist ;
+                      ex:truthAptnessSupposition ex:TruthApt ;
+                      rdfs:comment "moral judgments report the actual attitudes of the speaker (or their culture); 'x is wrong' means roughly 'I (or we) disapprove of x'." .
+
+
+###  http://www.github.com/silvialx/Onto/SincereRightJudgmentPossible
+ex:SincereRightJudgmentPossible rdf:type owl:NamedIndividual ,
+                                         <http://www.github.com/argumentsontology/Claim> ;
+                                rdfs:label "An agent can sincerely judge that an action is right."@en .
+
+
+###  http://www.github.com/silvialx/Onto/Skeptic
+ex:Skeptic rdf:type owl:NamedIndividual ,
+                    ex:Epistemology ;
+           ex:isIncompatibleWith ex:Coherentist ,
+                                 ex:Empiricist ,
+                                 ex:Fictionalist ,
+                                 ex:Intuitionist ,
+                                 ex:NaturalRealism ,
+                                 ex:NonnaturalRealism ,
+                                 ex:Realist ;
+           skos:definition "Skepticism in epistemology is a philosophical approach that questions the possibility of knowledge and challenges the reliability of knowledge claims. It often involves doubting whether we can truly know anything beyond our immediate experiences." .
+
+
+###  http://www.github.com/silvialx/Onto/SomeMoralIntuitionsAreTrueOnlyByAccident
+ex:SomeMoralIntuitionsAreTrueOnlyByAccident rdf:type owl:NamedIndividual ,
+                                                     <http://www.github.com/argumentsontology/Claim> ;
+                                            rdfs:label "Some true moral intuitions only accidentally track the relevant moral facts, e.g. through cultural conditioning that happens to be correct."@en .
+
+
+###  http://www.github.com/silvialx/Onto/Stevenson
+ex:Stevenson rdf:type owl:NamedIndividual ,
+                      ex:Philosopher ;
+             <http://www.github.com/argumentsontology/supports> ex:Emotivism ;
+             ex:created ex:EthicsAndLanguage ,
+                        ex:MoralStatementsExpressAttitudesAndCommands ;
+             rdfs:seeAlso <http://www.wikidata.org/entity/Q264334> .
+
+
+###  http://www.github.com/silvialx/Onto/Street
+ex:Street rdf:type owl:NamedIndividual ,
+                   ex:Philosopher ;
+          <http://www.github.com/argumentsontology/supports> ex:HumeanConstructivism ;
+          ex:created ex:EvolutionaryDebunkingArgument ,
+                     :ADarwinianDilemmaForRealistTheoriesOfValue ;
+          rdfs:seeAlso <http://www.wikidata.org/entity/Q28976544> .
+
+
+###  http://www.github.com/silvialx/Onto/Sturgeon
+ex:Sturgeon rdf:type owl:NamedIndividual ,
+                     ex:Philosopher ;
+            <http://www.github.com/argumentsontology/supports> ex:NonReductiveNaturalism ;
+            ex:created :MoralExplanations .
+
+
+###  http://www.github.com/silvialx/Onto/Subjectivist
+ex:Subjectivist rdf:type owl:NamedIndividual ,
+                         ex:Metaphysics ;
+                ex:isConditionallyCompatibleWith ex:Antirealist ;
+                ex:isIncompatibleWith ex:DivineCommandRealism ,
+                                      ex:NaturalRealism ,
+                                      ex:NonnaturalRealism ,
+                                      ex:Realist ;
+                skos:definition "Subjectivism holds that moral properties are reducible to, or constituted by, the attitudes of individual subjects (actual or idealized)." .
+
+
+###  http://www.github.com/silvialx/Onto/SupervenienceArgument
+ex:SupervenienceArgument rdf:type owl:NamedIndividual ,
+                                  <http://www.github.com/argumentsontology/Argument> ;
+                         <http://www.github.com/argumentsontology/hasConclusion> ex:ExpressivismExplainsMoralSupervenienceMoreCheaplyThanNonNaturalism ;
+                         <http://www.github.com/argumentsontology/hasPremise> ex:AProjectivistStoryExplainsWhyWeTreatEvaluativeAndDescriptiveJudgmentsAsBound ,
+                                                                              ex:MoralPropertiesNecessarilySuperveneOnNaturalProperties ,
+                                                                              ex:NonNaturalismLeavesThisNecessaryConnectionMysterious ;
+                         <http://www.github.com/argumentsontology/negates> ex:NonReductiveNaturalism ,
+                                                                           ex:Nonnaturalism ;
+                         <http://www.github.com/argumentsontology/supports> ex:BlackburnExpressivism ;
+                         rdfs:label "moral properties necessarily supervene on natural ones, yet this necessary connection is left mysterious by non-naturalism; a projectivist/expressivist story about why we treat evaluative and descriptive judgments as bound together explains the supervenience more cheaply (Blackburn)." .
+
+
+###  http://www.github.com/silvialx/Onto/TheExpressivistRealistDisputeBecomesMerelyVerbalOrTrivial
+ex:TheExpressivistRealistDisputeBecomesMerelyVerbalOrTrivial rdf:type owl:NamedIndividual ,
+                                                                      <http://www.github.com/argumentsontology/Claim> ;
+                                                             rdfs:label "The dispute between expressivism and realism becomes merely verbal or trivial."@en .
+
+
+###  http://www.github.com/silvialx/Onto/TheNatureOfMorality
+ex:TheNatureOfMorality rdf:type owl:NamedIndividual ,
+                                fabio:Book ;
+                       schema:about ex:ExplanatoryImpotenceArgument ,
+                                    ex:Relativism ;
+                       schema:datePublished 1977 .
+
+
+###  http://www.github.com/silvialx/Onto/TheNormativeWebAnArgumentForMoralRealism
+ex:TheNormativeWebAnArgumentForMoralRealism rdf:type owl:NamedIndividual ,
+                                                     fabio:Book ;
+                                            schema:about ex:CompanionsInGuiltArgument ,
+                                                         ex:Nonnaturalism ;
+                                            schema:datePublished 2007 .
+
+
+###  http://www.github.com/silvialx/Onto/TheQuestionIsNeverTrivialOrClosedForAnyProposedNaturalProperty
+ex:TheQuestionIsNeverTrivialOrClosedForAnyProposedNaturalProperty rdf:type owl:NamedIndividual ,
+                                                                           <http://www.github.com/argumentsontology/Claim> ;
+                                                                  rdfs:label "For every natural property that has been proposed as an analysis of 'good', the question remains significant, not trivial or closed."@en .
+
+
+###  http://www.github.com/silvialx/Onto/TheSameErrorTheoreticArgumentsGeneralizeToMathLogicAndEpistemicReasons
+ex:TheSameErrorTheoreticArgumentsGeneralizeToMathLogicAndEpistemicReasons rdf:type owl:NamedIndividual ,
+                                                                                   <http://www.github.com/argumentsontology/Claim> ;
+                                                                          rdfs:label "The same style of error-theoretic argument, applied consistently, also threatens seemingly unproblematic domains such as mathematics, logic, and epistemic reasons."@en .
+
+
+###  http://www.github.com/silvialx/Onto/TheSourcesOfNormativity
+ex:TheSourcesOfNormativity rdf:type owl:NamedIndividual ,
+                                    fabio:Book ;
+                           schema:about ex:KantianConstructivism ,
+                                        ex:NormativityRegressArgument ;
+                           schema:datePublished 1996 .
+
+
+###  http://www.github.com/silvialx/Onto/ThereCanBeReasonsOfTheWrongKindToHoldAProAttitude
+ex:ThereCanBeReasonsOfTheWrongKindToHoldAProAttitude rdf:type owl:NamedIndividual ,
+                                                              <http://www.github.com/argumentsontology/Claim> ;
+                                                     rdfs:label "There can be reasons of the wrong kind to hold a pro-attitude, e.g. a demon threatening torture unless you admire a stone."@en .
+
+
+###  http://www.github.com/silvialx/Onto/ThereIsNoGoodReasonToBelieveMoralFactsExist
+ex:ThereIsNoGoodReasonToBelieveMoralFactsExist rdf:type owl:NamedIndividual ,
+                                                        <http://www.github.com/argumentsontology/Claim> ;
+                                               rdfs:label "There is no good reason to believe that moral facts exist."@en .
+
+
+###  http://www.github.com/silvialx/Onto/ThisQuestionThreatensAnInfiniteRegressOrABruteStoppingPoint
+ex:ThisQuestionThreatensAnInfiniteRegressOrABruteStoppingPoint rdf:type owl:NamedIndividual ,
+                                                                        <http://www.github.com/argumentsontology/Claim> ;
+                                                               rdfs:label "This question threatens either an infinite regress or an unexplained, brute stopping point."@en .
+
+
+###  http://www.github.com/silvialx/Onto/Timmons
+ex:Timmons rdf:type owl:NamedIndividual ,
+                    ex:Philosopher ;
+           <http://www.github.com/argumentsontology/supports> ex:HybridExpressivism ;
+           ex:created ex:MoralTwinEarthArgument ,
+                      :MoralityWithoutFoundations .
+
+
+###  http://www.github.com/silvialx/Onto/TreatiseOfHumanNature
+ex:TreatiseOfHumanNature rdf:type owl:NamedIndividual ,
+                                  fabio:Book ;
+                         schema:datePublished 1783 .
+
+
+###  http://www.github.com/silvialx/Onto/TruthApt
+ex:TruthApt rdf:type owl:NamedIndividual ,
+                     ex:TruthAptness ;
+            ex:isIncompatibleWith ex:NonTruthApt ;
+            skos:definition "Truth-aptness of statements such as \"murder is wrong\" entail that such statements are either true or false." .
+
+
+###  http://www.github.com/silvialx/Onto/TwinEarthSpeakersCanStillSubstantivelyMorallyDisagreeDespiteDifferentRegulatingProperties
+ex:TwinEarthSpeakersCanStillSubstantivelyMorallyDisagreeDespiteDifferentRegulatingProperties rdf:type owl:NamedIndividual ,
+                                                                                                      <http://www.github.com/argumentsontology/Claim> ;
+                                                                                             rdfs:label "Speakers on Earth and Twin Earth can still substantively morally disagree, despite their terms being regulated by different natural properties."@en .
+
+
+###  http://www.github.com/silvialx/Onto/TwinEarthSpeakersUseTheSameMoralTermsRegulatedByDifferentNaturalProperties
+ex:TwinEarthSpeakersUseTheSameMoralTermsRegulatedByDifferentNaturalProperties rdf:type owl:NamedIndividual ,
+                                                                                       <http://www.github.com/argumentsontology/Claim> ;
+                                                                              rdfs:label "Twin-Earth speakers use the same moral terms, but those terms are regulated by different natural properties in each community."@en .
+
+
+###  http://www.github.com/silvialx/Onto/WeAreStronglyInclinedToDescribeSomeMoralChangesAsProgress
+ex:WeAreStronglyInclinedToDescribeSomeMoralChangesAsProgress rdf:type owl:NamedIndividual ,
+                                                                      <http://www.github.com/argumentsontology/Claim> ;
+                                                             rdfs:label "We are strongly inclined to describe changes such as the abolition of slavery as moral progress, not mere change."@en .
+
+
+###  http://www.github.com/silvialx/Onto/WeakInternalist
+ex:WeakInternalist rdf:type owl:NamedIndividual ,
+                            ex:ActionMotivation ;
+                   ex:isConditionallyCompatibleWith ex:Externalist ,
+                                                    ex:Internalist ;
+                   rdfs:comment "Weak internalism holds that moral judgment is only defeasibly or normally connected to motivation; amoralists are conceptually possible but psychologically abnormal." .
+
+
+###  http://www.github.com/silvialx/Onto/WhyBeMoralArgument
+ex:WhyBeMoralArgument rdf:type owl:NamedIndividual ,
+                               <http://www.github.com/argumentsontology/Argument> ;
+                      <http://www.github.com/argumentsontology/hasConclusion> ex:InternalismBetterExplainsThePracticalAuthorityOfMoralRequirements ;
+                      <http://www.github.com/argumentsontology/hasPremise> ex:ExternalismTreatsTheConnectionBetweenJudgmentAndMotivationAsMerelyContingent ,
+                                                                           ex:IfThatConnectionIsMerelyContingentItIsPuzzlingWhyMoralityShouldBeAuthoritative ,
+                                                                           ex:MoralConsiderationsAreTakenToBePracticallyAuthoritative ;
+                      <http://www.github.com/argumentsontology/negates> ex:Externalist ,
+                                                                        ex:Nonnaturalism ;
+                      <http://www.github.com/argumentsontology/supports> ex:Internalist ;
+                      rdfs:label "if the connection between recognizing a moral requirement and being moved by it is merely contingent, it becomes puzzling why moral considerations should be practically authoritative at all; this puzzle is often taken to favour internalism (Prichard)." .
+
+
+###  http://www.github.com/silvialx/Onto/Wiggins
+ex:Wiggins rdf:type owl:NamedIndividual ,
+                    ex:Philosopher ;
+           <http://www.github.com/argumentsontology/supports> ex:SensibilityTheory ;
+           ex:created :ASensibleSubjectivism ;
+           rdfs:seeAlso <http://www.wikidata.org/entity/Q5241057> .
+
+
+###  http://www.github.com/silvialx/Onto/Williams
+ex:Williams rdf:type owl:NamedIndividual ,
+                     ex:Philosopher ;
+            <http://www.github.com/argumentsontology/supports> ex:JudgmentInternalist ,
+                                                               ex:Relativism ;
+            ex:created ex:DifferenceInMoralityAndScience ,
+                       ex:EthicsAndTheLimitsOfPhilosophy ,
+                       ex:ReflectionDestroysKnowledge ;
+            rdfs:seeAlso <http://www.wikidata.org/entity/Q345641> .
+
+
+###  http://www.github.com/silvialx/Onto/Wright
+ex:Wright rdf:type owl:NamedIndividual ,
+                   ex:Philosopher ;
+          <http://www.github.com/argumentsontology/supports> ex:QuietistMetaethics ;
+          ex:created ex:CognitiveCommandImplication ,
+                     :TruthAndObjectivity ;
+          rdfs:seeAlso <http://www.wikidata.org/entity/Q445989> .
+
+
+###  http://www.github.com/silvialx/Onto/WrongKindOfReasonsProblem
+ex:WrongKindOfReasonsProblem rdf:type owl:NamedIndividual ,
+                                      <http://www.github.com/argumentsontology/Argument> ;
+                             <http://www.github.com/argumentsontology/hasConclusion> ex:FittingAttitudeAnalysesCannotDistinguishRightFromWrongKindReasons ;
+                             <http://www.github.com/argumentsontology/hasPremise> ex:FittingAttitudeAnalysesDefineValueViaWarrantedProAttitudes ,
+                                                                                  ex:ThereCanBeReasonsOfTheWrongKindToHoldAProAttitude ,
+                                                                                  ex:WrongKindReasonsDoNotMakeTheirObjectValuable ;
+                             <http://www.github.com/argumentsontology/negates> ex:BlackburnExpressivism ,
+                                                                               ex:GibbardNormExpressivism ;
+                             rdfs:label "fitting-attitude and quasi-realist analyses of value in terms of warranted pro-attitudes are threatened by cases where there are reasons of the wrong kind to have the attitude (e.g. a demon threatening to torture unless you admire a stone)." .
+
+
+###  http://www.github.com/silvialx/Onto/WrongKindReasonsDoNotMakeTheirObjectValuable
+ex:WrongKindReasonsDoNotMakeTheirObjectValuable rdf:type owl:NamedIndividual ,
+                                                         <http://www.github.com/argumentsontology/Claim> ;
+                                                rdfs:label "Reasons of the wrong kind to hold a pro-attitude do not make their object genuinely valuable."@en .
+
+
+###  http://www.github.com/silvialx/Onto/truthCoherentism
+ex:truthCoherentism rdf:type owl:NamedIndividual ,
+                             ex:TruthTheorySupposition ;
+                    rdfs:comment "a proposition is true iff it coheres with a wider system of beliefs." .
+
+
+###  http://www.github.com/silvialx/Onto/truthConstructivism
+ex:truthConstructivism rdf:type owl:NamedIndividual ,
+                                ex:TruthTheorySupposition ;
+                       rdfs:comment "truth is constituted by what would be agreed upon under idealized rational procedure." .
+
+
+###  http://www.github.com/silvialx/Onto/truthCorrespondentism
+ex:truthCorrespondentism rdf:type owl:NamedIndividual ,
+                                  ex:TruthTheorySupposition .
+
+
+###  http://www.github.com/silvialx/Onto/truthDeflationism
+ex:truthDeflationism rdf:type owl:NamedIndividual ,
+                              ex:TruthTheorySupposition ;
+                     rdfs:comment "asserting 'p is true' adds nothing beyond asserting p; 'true' is not a substantive property." .
+
+
+###  http://www.github.com/silvialx/Onto/truthMinimalism
+ex:truthMinimalism rdf:type owl:NamedIndividual ,
+                            ex:TruthTheorySupposition .
+
+
+###  http://www.github.com/silvialx/Onto/truthPerspectivalism
+ex:truthPerspectivalism rdf:type owl:NamedIndividual ,
+                                 ex:TruthTheorySupposition ;
+                        rdfs:comment "truth-ascriptions are implicitly relativized to an evaluative perspective or standard." .
+
+
+###  http://www.github.com/silvialx/Onto/truthPluralism
+ex:truthPluralism rdf:type owl:NamedIndividual ,
+                           ex:TruthTheorySupposition ;
+                  rdfs:comment "truth is constituted differently in different domains of discourse (Wright, Lynch)." .
+
+
+###  http://www.github.com/silvialx/Onto/truthPragmatism
+ex:truthPragmatism rdf:type owl:NamedIndividual ,
+                            ex:TruthTheorySupposition ;
+                   rdfs:comment "a proposition is true iff belief in it is, in the long run, useful or vindicated in inquiry." .
+
+
+###  http://www.github.com/silvialx/Onto/Ethics:InventingRight&Wrong
+<http://www.github.com/silvialx/Onto/Ethics:InventingRight&Wrong> rdf:type owl:NamedIndividual ,
+                                                                           fabio:Book ;
+                                                                  schema:about ex:ArgumentFromDisagreement ,
+                                                                               :ArgumentForQueerness ,
+                                                                               :ArgumentForRelativity ;
+                                                                  schema:datePublished 1977 ;
+                                                                  rdfs:seeAlso <http://www.wikidata.org/entity/Q31271796> .
+
+
+###  http://www.github.com/silvialx/Onto/Excellence&HumanWellBeing
+<http://www.github.com/silvialx/Onto/Excellence&HumanWellBeing> rdf:type owl:NamedIndividual ,
+                                                                         <http://www.github.com/argumentsontology/Claim> ;
+                                                                rdfs:label "Good is identified as the infinite Good, and the archetype of Good is better undersoot as excelleence. Human well-being and human values are also best understood in terms of excellence (Adams 1999, 93)." .
+
+
+###  http://www.github.com/silvialx/Onto/SecuringTheKnots:MoralEpistemologyForTheQuasiRealist
+ex:SecuringTheKnots:MoralEpistemologyForTheQuasiRealist rdf:type owl:NamedIndividual ,
+                                                                 fabio:Book ;
+                                                        schema:about ex:BlackburnExpressivism ,
+                                                                     ex:SupervenienceArgument ;
+                                                        schema:datePublished 1998 .
+
+
+###  http://www.semanticweb.org/silvi/ontologies/2026/6/untitled-ontology-6#ADarwinianDilemmaForRealistTheoriesOfValue
+:ADarwinianDilemmaForRealistTheoriesOfValue rdf:type owl:NamedIndividual ,
+                                                     fabio:BookChapter ;
+                                            schema:about ex:EvolutionaryDebunkingArgument ,
+                                                         ex:HumeanConstructivism ;
+                                            schema:datePublished 2006 .
+
+
+###  http://www.semanticweb.org/silvi/ontologies/2026/6/untitled-ontology-6#ASensibleSubjectivism
+:ASensibleSubjectivism rdf:type owl:NamedIndividual ,
+                                fabio:BookChapter ;
+                       schema:about ex:SensibilityTheory ;
+                       schema:datePublished 1987 .
+
+
+###  http://www.semanticweb.org/silvi/ontologies/2026/6/untitled-ontology-6#AnInquiryIntoTheOriginalOfOurIdeasOfBeautyAndVirtue
+:AnInquiryIntoTheOriginalOfOurIdeasOfBeautyAndVirtue rdf:type owl:NamedIndividual ,
+                                                              fabio:Book ;
+                                                     schema:about ex:MoralSentimentalism ;
+                                                     schema:datePublished 1725 .
+
+
+###  http://www.semanticweb.org/silvi/ontologies/2026/6/untitled-ontology-6#ArgumentForQueerness
+:ArgumentForQueerness rdf:type owl:NamedIndividual ,
+                               <http://www.github.com/argumentsontology/Argument> ;
+                      <http://www.github.com/argumentsontology/negates> ex:NaturalRealism ,
+                                                                        ex:NonnaturalRealism ,
+                                                                        ex:Realist ;
+                      <http://www.github.com/argumentsontology/supports> ex:Fictionalist ;
+                      rdfs:label "The argument from queerness claims that objective moral values would be so strange and unlike any other properties in the universe that we have no good reason to believe they exist." .
+
+
+###  http://www.semanticweb.org/silvi/ontologies/2026/6/untitled-ontology-6#ArgumentForRelativity
+:ArgumentForRelativity rdf:type owl:NamedIndividual ,
+                                <http://www.github.com/argumentsontology/Argument> ;
+                       <http://www.github.com/argumentsontology/negates> ex:Realist ;
+                       <http://www.github.com/argumentsontology/supports> ex:Fictionalist ,
+                                                                          ex:Relativist ;
+                       rdfs:label "The argument from relativity has as its premiss the well-known variation in moral codes from one society to another and from one period to another, and also the differences in moral beliefs between different groups and classes within a complex community. Such variation is in itself merely a truth of descriptive morality, a fact of anthropology which entails neither first order nor second order ethical views (Mackie 1977)." .
+
+
+###  http://www.semanticweb.org/silvi/ontologies/2026/6/untitled-ontology-6#CognitiveCommand
+:CognitiveCommand rdf:type owl:NamedIndividual ,
+                           <http://www.github.com/argumentsontology/Claim> ;
+                  rdfs:label "A discourse exhibits Cognitive Command if and only if it is a priori that differences of opinion arising ehithin it can be explained only in terms of \"divergent input\"." .
+
+
+###  http://www.semanticweb.org/silvi/ontologies/2026/6/untitled-ontology-6#CultureAndEthicalKnowledge
+:CultureAndEthicalKnowledge rdf:type owl:NamedIndividual ,
+                                     <http://www.github.com/argumentsontology/Claim> ;
+                            rdfs:label "society can posses ethical knowledge only regarding the nest of beliefs implied by the way of living, the culture, of dais society. Comparing the beliefs entailed in a culture with the ones of another does not allow one to acquire ethical knowledge, if for \"ethical knowledge\" we mean the knowledge involved in making judgements, pursuing actions. In other words, reflecting on one's culture by comparing it with another will not give any insights on our own ethical notions." .
+
+
+###  http://www.semanticweb.org/silvi/ontologies/2026/6/untitled-ontology-6#DoesMoralPhilosophyRestOnAMistake
+:DoesMoralPhilosophyRestOnAMistake rdf:type owl:NamedIndividual ,
+                                            fabio:BookChapter ;
+                                   schema:about ex:RossianIntuitionism ,
+                                                ex:WhyBeMoralArgument ;
+                                   schema:datePublished 1912 .
+
+
+###  http://www.semanticweb.org/silvi/ontologies/2026/6/untitled-ontology-6#EcumenicalExpressivism
+:EcumenicalExpressivism rdf:type owl:NamedIndividual ,
+                                 fabio:BookChapter ;
+                        schema:about ex:HybridExpressivism ;
+                        schema:datePublished 2006 .
+
+
+###  http://www.semanticweb.org/silvi/ontologies/2026/6/untitled-ontology-6#EthicalAbsolutismAndTheIdealObserverTheory
+:EthicalAbsolutismAndTheIdealObserverTheory rdf:type owl:NamedIndividual ,
+                                                     fabio:BookChapter ;
+                                            schema:about ex:IdealObserverTheory ;
+                                            schema:datePublished 1952 .
+
+
+###  http://www.semanticweb.org/silvi/ontologies/2026/6/untitled-ontology-6#GroundworkOfTheMetaphysicsOfMorals
+:GroundworkOfTheMetaphysicsOfMorals rdf:type owl:NamedIndividual ,
+                                             fabio:Book ;
+                                    schema:about ex:KantianConstructivism ;
+                                    schema:datePublished 1785 ;
+                                    rdfs:seeAlso <http://www.wikidata.org/entity/Q1550565> .
+
+
+###  http://www.semanticweb.org/silvi/ontologies/2026/6/untitled-ontology-6#LanguageTruthAndLogicCh6
+:LanguageTruthAndLogicCh6 rdf:type owl:NamedIndividual ,
+                                   fabio:BookChapter ;
+                          schema:about ex:Emotivism ;
+                          schema:datePublished 1946 ;
+                          rdfs:seeAlso <http://www.wikidata.org/entity/Q1431691> .
+
+
+###  http://www.semanticweb.org/silvi/ontologies/2026/6/untitled-ontology-6#MoralExplanations
+:MoralExplanations rdf:type owl:NamedIndividual ,
+                            fabio:BookChapter ;
+                   schema:about ex:NonReductiveNaturalism ;
+                   schema:datePublished 1985 .
+
+
+###  http://www.semanticweb.org/silvi/ontologies/2026/6/untitled-ontology-6#MoralRealism
+:MoralRealism rdf:type owl:NamedIndividual ,
+                       fabio:BookChapter ;
+              schema:about ex:NonReductiveNaturalism ;
+              schema:datePublished 1986 .
+
+
+###  http://www.semanticweb.org/silvi/ontologies/2026/6/untitled-ontology-6#MoralRealismAndTheFoundationsOfEthics
+:MoralRealismAndTheFoundationsOfEthics rdf:type owl:NamedIndividual ,
+                                                fabio:Book ;
+                                       schema:about ex:NonReductiveNaturalism ;
+                                       schema:datePublished 1989 .
+
+
+###  http://www.semanticweb.org/silvi/ontologies/2026/6/untitled-ontology-6#MoralReasons
+:MoralReasons rdf:type owl:NamedIndividual ,
+                       fabio:Book ;
+              schema:about ex:Particularism ;
+              schema:datePublished 1993 .
+
+
+###  http://www.semanticweb.org/silvi/ontologies/2026/6/untitled-ontology-6#MoralStatementsAsImperatives
+:MoralStatementsAsImperatives rdf:type owl:NamedIndividual ,
+                                       <http://www.github.com/argumentsontology/Claim> ;
+                              rdfs:comment "Moral statements such as \"lying is wrong\" can be satisfiably translated as \"I disapprove of lying. Do so as well\"." .
+
+
+###  http://www.semanticweb.org/silvi/ontologies/2026/6/untitled-ontology-6#MoralityNormativityAndSociety
+:MoralityNormativityAndSociety rdf:type owl:NamedIndividual ,
+                                        fabio:Book ;
+                               schema:about ex:NonReductiveNaturalism ;
+                               schema:datePublished 1995 .
+
+
+###  http://www.semanticweb.org/silvi/ontologies/2026/6/untitled-ontology-6#MoralityWithoutFoundations
+:MoralityWithoutFoundations rdf:type owl:NamedIndividual ,
+                                     fabio:Book ;
+                            schema:about ex:HybridExpressivism ;
+                            schema:datePublished 1999 .
+
+
+###  http://www.semanticweb.org/silvi/ontologies/2026/6/untitled-ontology-6#MoralsByAgreement
+:MoralsByAgreement rdf:type owl:NamedIndividual ,
+                            fabio:Book ;
+                   schema:about ex:Contractualism ;
+                   schema:datePublished 1986 .
+
+
+###  http://www.semanticweb.org/silvi/ontologies/2026/6/untitled-ontology-6#NaturalGoodness
+:NaturalGoodness rdf:type owl:NamedIndividual ,
+                          fabio:Book ;
+                 schema:about ex:NeoAristotelianNaturalism ;
+                 schema:datePublished 2001 .
+
+
+###  http://www.semanticweb.org/silvi/ontologies/2026/6/untitled-ontology-6#NondescriptivistCognitivism
+:NondescriptivistCognitivism rdf:type owl:NamedIndividual ,
+                                      fabio:BookChapter ;
+                             schema:about ex:HybridExpressivism ,
+                                          ex:MoralTwinEarthArgument ;
+                             schema:datePublished 2000 .
+
+
+###  http://www.semanticweb.org/silvi/ontologies/2026/6/untitled-ontology-6#ObservationAndMorality
+:ObservationAndMorality rdf:type owl:NamedIndividual ,
+                                 <http://www.github.com/argumentsontology/Claim> ;
+                        rdfs:label "Goodness is an ordinary natural property quite similar to properties studied by historian and psychologists, and observation will play the same role in moral enquiry that it plays in the other kinds of empirical enquiry about people." .
+
+
+###  http://www.semanticweb.org/silvi/ontologies/2026/6/untitled-ontology-6#TakingMoralitySeriously
+:TakingMoralitySeriously rdf:type owl:NamedIndividual ,
+                                  fabio:Book ;
+                         schema:about ex:Nonnaturalism ;
+                         schema:datePublished 2011 .
+
+
+###  http://www.semanticweb.org/silvi/ontologies/2026/6/untitled-ontology-6#TheLanguageOfMorals
+:TheLanguageOfMorals rdf:type owl:NamedIndividual ,
+                              fabio:Book ;
+                     schema:about ex:Prescriptivism ;
+                     schema:datePublished 1952 .
+
+
+###  http://www.semanticweb.org/silvi/ontologies/2026/6/untitled-ontology-6#TheMethodsOfEthics
+:TheMethodsOfEthics rdf:type owl:NamedIndividual ,
+                             fabio:Book ;
+                    schema:about ex:Nonnaturalism ;
+                    schema:datePublished 1874 .
+
+
+###  http://www.semanticweb.org/silvi/ontologies/2026/6/untitled-ontology-6#TheMoralProblem
+:TheMoralProblem rdf:type owl:NamedIndividual ,
+                          fabio:Book ;
+                 schema:about ex:Nonnaturalism ;
+                 schema:datePublished 1994 ;
+                 rdfs:seeAlso <http://www.wikidata.org/entity/Q124638787> .
+
+
+###  http://www.semanticweb.org/silvi/ontologies/2026/6/untitled-ontology-6#TheMythOfMorality
+:TheMythOfMorality rdf:type owl:NamedIndividual ,
+                            fabio:Book ;
+                   schema:about ex:MoralFictionalism ;
+                   schema:datePublished 2001 .
+
+
+###  http://www.semanticweb.org/silvi/ontologies/2026/6/untitled-ontology-6#TheRightAndTheGood
+:TheRightAndTheGood rdf:type owl:NamedIndividual ,
+                             fabio:Book ;
+                    schema:about ex:RossianIntuitionism ;
+                    schema:datePublished 1930 ;
+                    rdfs:seeAlso <http://www.wikidata.org/entity/Q105061759> .
+
+
+###  http://www.semanticweb.org/silvi/ontologies/2026/6/untitled-ontology-6#TheSecondPersonStandpoint
+:TheSecondPersonStandpoint rdf:type owl:NamedIndividual ,
+                                    fabio:Book ;
+                           schema:about ex:Contractualism ;
+                           schema:datePublished 2006 .
+
+
+###  http://www.semanticweb.org/silvi/ontologies/2026/6/untitled-ontology-6#TheViewFromNowhere
+:TheViewFromNowhere rdf:type owl:NamedIndividual ,
+                             fabio:Book ;
+                    schema:about ex:Nonnaturalism ;
+                    schema:datePublished 1986 .
+
+
+###  http://www.semanticweb.org/silvi/ontologies/2026/6/untitled-ontology-6#TruismOfSentencesAndTheirTruth
+:TruismOfSentencesAndTheirTruth rdf:type owl:NamedIndividual ,
+                                         <http://www.github.com/argumentsontology/Claim> ;
+                                rdfs:label "If what the sentence says in a particular context is less than a robust matter, it seems that the same must go for the claim that the sentence is true." .
+
+
+###  http://www.semanticweb.org/silvi/ontologies/2026/6/untitled-ontology-6#TruthAndObjectivity
+:TruthAndObjectivity rdf:type owl:NamedIndividual ,
+                              fabio:Book ;
+                     schema:about ex:CognitiveCommandImplication ,
+                                  ex:QuietistMetaethics ;
+                     schema:datePublished 1992 .
+
+
+###  http://www.semanticweb.org/silvi/ontologies/2026/6/untitled-ontology-6#ValuesAndSecondaryQualities
+:ValuesAndSecondaryQualities rdf:type owl:NamedIndividual ,
+                                      fabio:BookChapter ;
+                             schema:about ex:SensibilityTheory ;
+                             schema:datePublished 1985 .
+
+
+###  http://www.semanticweb.org/silvi/ontologies/2026/6/untitled-ontology-6#WhatWeOweToEachOther
+:WhatWeOweToEachOther rdf:type owl:NamedIndividual ,
+                               fabio:Book ;
+                      schema:about ex:Contractualism ;
+                      schema:datePublished 1998 .
+
+
+###  http://www.semanticweb.org/silvi/ontologies/2026/6/untitled-ontology-6#WiseChoicesAptFeelings
+:WiseChoicesAptFeelings rdf:type owl:NamedIndividual ,
+                                 fabio:Book ;
+                        schema:about ex:GibbardNormExpressivism ;
+                        schema:datePublished 1990 .
+
+
+#################################################################
+#    General axioms
+#################################################################
+
+[ rdf:type owl:AllDifferent ;
+  owl:distinctMembers ( ex:Coherentist
+                        ex:Empiricist
+                        ex:Fictionalist
+                        ex:Intuitionist
+                        ex:QuasiRealist
+                        ex:Skeptic
+                      )
+] .
+
+
+#################################################################
+#    Rules
+#################################################################
+
+:pos rdf:type swrl:Variable .
+
+:supp1 rdf:type swrl:Variable .
+
+:supp2 rdf:type swrl:Variable .
+
+:position rdf:type swrl:Variable .
+
+:supp rdf:type swrl:Variable .
+
+:condition rdf:type swrl:Variable .
+
+:school rdf:type swrl:Variable .
+
+:author rdf:type swrl:Variable .
+
+[ swrla:isRuleEnabled "true"^^xsd:boolean ;
+   rdfs:comment "" ;
+   rdfs:label "Incompatibility (for inferring inconsistency)" ;
+   rdf:type swrl:Imp ;
+   swrl:body [ rdf:type swrl:AtomList ;
+               rdf:first [ rdf:type swrl:IndividualPropertyAtom ;
+                           swrl:propertyPredicate <http://www.github.com/argumentsontology/hasSupposition> ;
+                           swrl:argument1 :pos ;
+                           swrl:argument2 :supp1
+                         ] ;
+               rdf:rest [ rdf:type swrl:AtomList ;
+                          rdf:first [ rdf:type swrl:IndividualPropertyAtom ;
+                                      swrl:propertyPredicate <http://www.github.com/argumentsontology/hasSupposition> ;
+                                      swrl:argument1 :pos ;
+                                      swrl:argument2 :supp2
+                                    ] ;
+                          rdf:rest [ rdf:type swrl:AtomList ;
+                                     rdf:first [ rdf:type swrl:IndividualPropertyAtom ;
+                                                 swrl:propertyPredicate ex:isIncompatibleWith ;
+                                                 swrl:argument1 :supp1 ;
+                                                 swrl:argument2 :supp2
+                                               ] ;
+                                     rdf:rest [ rdf:type swrl:AtomList ;
+                                                rdf:first [ rdf:type swrl:ClassAtom ;
+                                                            swrl:classPredicate ex:MetaethicalPosition ;
+                                                            swrl:argument1 :pos
+                                                          ] ;
+                                                rdf:rest rdf:nil
+                                              ]
+                                   ]
+                        ]
+             ] ;
+   swrl:head [ rdf:type swrl:AtomList ;
+               rdf:first [ rdf:type swrl:IndividualPropertyAtom ;
+                           swrl:propertyPredicate ex:isIncompatibleWith ;
+                           swrl:argument1 :pos ;
+                           swrl:argument2 :supp1
+                         ] ;
+               rdf:rest rdf:nil
+             ]
+ ] .
+
+[ swrla:isRuleEnabled "true"^^xsd:boolean ;
+   rdfs:comment "if an argument requires necessarily a condition and is not inconsistent, then it is a conditionally consistent argument." ;
+   rdfs:label "conditionnally consistent positions" ;
+   rdf:type swrl:Imp ;
+   swrl:body [ rdf:type swrl:AtomList ;
+               rdf:first [ rdf:type swrl:IndividualPropertyAtom ;
+                           swrl:propertyPredicate <http://www.github.com/argumentsontology/hasSupposition> ;
+                           swrl:argument1 :position ;
+                           swrl:argument2 :supp
+                         ] ;
+               rdf:rest [ rdf:type swrl:AtomList ;
+                          rdf:first [ rdf:type swrl:IndividualPropertyAtom ;
+                                      swrl:propertyPredicate ex:necessaryCondition ;
+                                      swrl:argument1 :supp ;
+                                      swrl:argument2 :condition
+                                    ] ;
+                          rdf:rest [ rdf:type swrl:AtomList ;
+                                     rdf:first [ rdf:type swrl:ClassAtom ;
+                                                 swrl:classPredicate ex:MetaethicalPosition ;
+                                                 swrl:argument1 :position
+                                               ] ;
+                                     rdf:rest rdf:nil
+                                   ]
+                        ]
+             ] ;
+   swrl:head [ rdf:type swrl:AtomList ;
+               rdf:first [ rdf:type swrl:ClassAtom ;
+                           swrl:classPredicate :ConditionallyConsistentPosition ;
+                           swrl:argument1 :position
+                         ] ;
+               rdf:rest rdf:nil
+             ]
+ ] .
+
+[ swrla:isRuleEnabled "true"^^xsd:boolean ;
+   rdfs:comment "if a school requires some suppositions, the authors belonging to that school commit to those suppositions as well." ;
+   rdfs:label "supposition simmetry 1" ;
+   rdf:type swrl:Imp ;
+   swrl:body [ rdf:type swrl:AtomList ;
+               rdf:first [ rdf:type swrl:IndividualPropertyAtom ;
+                           swrl:propertyPredicate <http://www.github.com/argumentsontology/hasSupposition> ;
+                           swrl:argument1 :school ;
+                           swrl:argument2 :supp
+                         ] ;
+               rdf:rest [ rdf:type swrl:AtomList ;
+                          rdf:first [ rdf:type swrl:IndividualPropertyAtom ;
+                                      swrl:propertyPredicate <http://www.github.com/argumentsontology/supports> ;
+                                      swrl:argument1 :author ;
+                                      swrl:argument2 :school
+                                    ] ;
+                          rdf:rest [ rdf:type swrl:AtomList ;
+                                     rdf:first [ rdf:type swrl:ClassAtom ;
+                                                 swrl:classPredicate ex:MetaethicalPosition ;
+                                                 swrl:argument1 :school
+                                               ] ;
+                                     rdf:rest [ rdf:type swrl:AtomList ;
+                                                rdf:first [ rdf:type swrl:ClassAtom ;
+                                                            swrl:classPredicate ex:Philosopher ;
+                                                            swrl:argument1 :author
+                                                          ] ;
+                                                rdf:rest rdf:nil
+                                              ]
+                                   ]
+                        ]
+             ] ;
+   swrl:head [ rdf:type swrl:AtomList ;
+               rdf:first [ rdf:type swrl:IndividualPropertyAtom ;
+                           swrl:propertyPredicate <http://www.github.com/argumentsontology/hasSupposition> ;
+                           swrl:argument1 :author ;
+                           swrl:argument2 :supp
+                         ] ;
+               rdf:rest rdf:nil
+             ]
+ ] .
+
+[ swrla:isRuleEnabled "true"^^xsd:boolean ;
+   rdfs:comment "if a position is supported by an argument whose two declared suppositions are incompatible with each other, the position is inconsistent." ;
+   rdfs:label "inconsistent position" ;
+   rdf:type swrl:Imp ;
+   swrl:body [ rdf:type swrl:AtomList ;
+               rdf:first [ rdf:type swrl:IndividualPropertyAtom ;
+                           swrl:propertyPredicate <http://www.github.com/argumentsontology/hasSupposition> ;
+                           swrl:argument1 :position ;
+                           swrl:argument2 :supp1
+                         ] ;
+               rdf:rest [ rdf:type swrl:AtomList ;
+                          rdf:first [ rdf:type swrl:IndividualPropertyAtom ;
+                                      swrl:propertyPredicate <http://www.github.com/argumentsontology/hasSupposition> ;
+                                      swrl:argument1 :position ;
+                                      swrl:argument2 :supp2
+                                    ] ;
+                          rdf:rest [ rdf:type swrl:AtomList ;
+                                     rdf:first [ rdf:type swrl:IndividualPropertyAtom ;
+                                                 swrl:propertyPredicate ex:isIncompatibleWith ;
+                                                 swrl:argument1 :supp1 ;
+                                                 swrl:argument2 :supp2
+                                               ] ;
+                                     rdf:rest rdf:nil
+                                   ]
+                        ]
+             ] ;
+   swrl:head [ rdf:type swrl:AtomList ;
+               rdf:first [ rdf:type swrl:ClassAtom ;
+                           swrl:classPredicate :InconsistentPosition ;
+                           swrl:argument1 :position
+                         ] ;
+               rdf:rest rdf:nil
+             ]
+ ] .
+
+###  Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi

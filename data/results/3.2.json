@@ -1,0 +1,208 @@
+{
+  "columns": [
+    "argument",
+    "argumentLabel",
+    "book",
+    "supports"
+  ],
+  "rows": [
+    {
+      "argument": "AbrahamsDilemma",
+      "argumentLabel": "God's command towards Abraham to kill his own son leads to this dilemma: is it ever wrong to obey God?",
+      "book": "FearAndTrembling",
+      "supports": null
+    },
+    {
+      "argument": "AbrahamsDilemmaResponse",
+      "argumentLabel": "God's command towards Abraham to kill his own son leads to this dilemma: is it ever wrong to obey God?\nAdams' response argues that for sure something commanded by god cannot be morally wrong (Adams 1999, 283).",
+      "book": "FiniteAndInfiniteGoods",
+      "supports": "DivineCommandTheory"
+    },
+    {
+      "argument": "AkrasiaArgument",
+      "argumentLabel": "an agent can sincerely judge that an action is right yet fail, through weakness of will, to be motivated to do it; since noncognitivist theories tie the meaning of moral judgments to motivating attitudes, they struggle to make sense of this gap, which is better explained by treating moral judgments as beliefs that can fail to move us (an argument for cognitivism from akrasia).",
+      "book": "NicomacheanEthics",
+      "supports": "Cognitivist"
+    },
+    {
+      "argument": "ArgumentFromDisagreement",
+      "argumentLabel": "the depth and intractability of moral disagreement across cultures and history is better explained by there being no single objective moral order than by widespread error on the part of the disputants (Mackie).",
+      "book": "Ethics:InventingRight&Wrong",
+      "supports": "ErrorTheory"
+    },
+    {
+      "argument": "ArgumentFromDisagreement",
+      "argumentLabel": "the depth and intractability of moral disagreement across cultures and history is better explained by there being no single objective moral order than by widespread error on the part of the disputants (Mackie).",
+      "book": "Ethics:InventingRight&Wrong",
+      "supports": "Relativism"
+    },
+    {
+      "argument": "CognitiveCommandImplication",
+      "argumentLabel": "When one appraises the claim that a sentence S is true and  holds an opinion about its content, divergent appraisals may turn in divergent opinions. But when such differences fail of Cognitive Command, therefore no inputs are different between the subjects holding these opinions, and no cognitive shortcoming need be involved for such difference of opinion, the same kind of divergence can be held for S's truth value. Therefore, in such cases, minimalism about meaning has to involve minimalism about metalinguistic ascriptions of truth (Wright 1992, 222).",
+      "book": "TruthAndObjectivity",
+      "supports": "QuietistMetaethics"
+    },
+    {
+      "argument": "CompanionsInGuiltArgument",
+      "argumentLabel": "if error-theoretic arguments (queerness, disagreement) also threaten seemingly unproblematic domains like mathematics, epistemic reasons, or logic, then either those domains are equally undermined or the argument proves too much (Cuneo).",
+      "book": "TheNormativeWebAnArgumentForMoralRealism",
+      "supports": "Nonnaturalism"
+    },
+    {
+      "argument": "DifferenceInMoralityAndScience",
+      "argumentLabel": "Morality and science are fundamentlaly different in the way they presume objectivity and the way convergence and divergence are handled (Williams 1985, 136).",
+      "book": "EthicsAndTheLimitsOfPhilosophy",
+      "supports": null
+    },
+    {
+      "argument": "EvolutionaryDebunkingArgument",
+      "argumentLabel": "our moral beliefs are massively shaped by evolutionary pressures that track reproductive fitness, not mind-independent moral truth; absent an implausible coincidence, this undercuts the justification for realist confidence in those beliefs (Street).",
+      "book": null,
+      "supports": "HumeanConstructivism"
+    },
+    {
+      "argument": "ExplanatoryImpotenceArgument",
+      "argumentLabel": "unlike scientific posits, moral facts never seem to feature in the best explanation of any observation (e.g. of why we have the moral beliefs we do); this explanatory idleness gives us reason to deny that moral facts exist (Harman).",
+      "book": "TheNatureOfMorality",
+      "supports": "Antirealist"
+    },
+    {
+      "argument": "ExplanatoryImpotenceArgument",
+      "argumentLabel": "unlike scientific posits, moral facts never seem to feature in the best explanation of any observation (e.g. of why we have the moral beliefs we do); this explanatory idleness gives us reason to deny that moral facts exist (Harman).",
+      "book": "TheNatureOfMorality",
+      "supports": "ErrorTheory"
+    },
+    {
+      "argument": "FregeGeachProblem",
+      "argumentLabel": "moral sentences keep the same meaning when embedded in unasserted contexts, such as the antecedent of a conditional, as they have when asserted outright, which is what makes ordinary moral inferences (modus ponens) valid; noncognitivist analyses, which explain moral utterances as expressions of attitude rather than truth-apt claims, struggle to explain this constancy of meaning across asserted and unasserted occurrences (Geach, following Frege).",
+      "book": null,
+      "supports": "Cognitivist"
+    },
+    {
+      "argument": "GettierProblemForMoralIntuitions",
+      "argumentLabel": "moral intuitions that are true but only accidentally track the relevant moral facts (e.g. through cultural conditioning that happens to be correct) look like they fail to constitute moral knowledge, threatening simple intuitionist accounts of moral epistemology.",
+      "book": null,
+      "supports": "Skeptic"
+    },
+    {
+      "argument": "HumeLaw",
+      "argumentLabel": "no purely descriptive set of premises (statements of 'is') can logically entail a normative conclusion (a statement of 'ought') without at least one normative premise smuggled in; this gap tells against naturalist views that try to derive moral facts from natural ones, and is often read as support for noncognitivism (Hume, the is-ought gap).",
+      "book": null,
+      "supports": "Noncognitivist"
+    },
+    {
+      "argument": "MoralProgressArgument",
+      "argumentLabel": "we are strongly inclined to describe changes like the abolition of slavery as moral progress and not mere change; this description is hard to make sense of without a standard of moral correctness that is not fixed by any single framework (Shafer-Landau, against relativism).",
+      "book": "MoralRealismADefence",
+      "supports": "NonReductiveNaturalism"
+    },
+    {
+      "argument": "MoralProgressArgument",
+      "argumentLabel": "we are strongly inclined to describe changes like the abolition of slavery as moral progress and not mere change; this description is hard to make sense of without a standard of moral correctness that is not fixed by any single framework (Shafer-Landau, against relativism).",
+      "book": "MoralRealismADefence",
+      "supports": "Nonnaturalism"
+    },
+    {
+      "argument": "MoralTwinEarthArgument",
+      "argumentLabel": "a Twin-Earth thought experiment (parallel to Putnam's for natural kind terms) argues that moral terms do not simply pick out whatever natural property regulates their use, since speakers with different regulating properties can still substantively morally disagree (Horgan & Timmons, against Cornell Realism).",
+      "book": null,
+      "supports": "HybridExpressivism"
+    },
+    {
+      "argument": "NormativityRegressArgument",
+      "argumentLabel": "any attempt to ground the authority of moral requirements in a further fact threatens a regress or a brute stopping point; only requirements that are self-legislated by rational agency avoid this regress, motivating a constructivist account of normativity (Korsgaard).",
+      "book": "TheSourcesOfNormativity",
+      "supports": "KantianConstructivism"
+    },
+    {
+      "argument": "NormativityRegressArgument",
+      "argumentLabel": "any attempt to ground the authority of moral requirements in a further fact threatens a regress or a brute stopping point; only requirements that are self-legislated by rational agency avoid this regress, motivating a constructivist account of normativity (Korsgaard).",
+      "book": "TheSourcesOfNormativity",
+      "supports": "QuietistMetaethics"
+    },
+    {
+      "argument": "OpenQuestionArgument",
+      "argumentLabel": "for any proposed natural property N that 'good' is claimed to mean, it remains a significant, open question whether something that is N is also good, whereas a genuine analytic identity would make the question trivial or closed; this shows 'good' cannot be reductively defined in natural terms (Moore, against reductive naturalism).",
+      "book": "PrincipiaEthica",
+      "supports": "BlackburnExpressivism"
+    },
+    {
+      "argument": "OpenQuestionArgument",
+      "argumentLabel": "for any proposed natural property N that 'good' is claimed to mean, it remains a significant, open question whether something that is N is also good, whereas a genuine analytic identity would make the question trivial or closed; this shows 'good' cannot be reductively defined in natural terms (Moore, against reductive naturalism).",
+      "book": "PrincipiaEthica",
+      "supports": "Emotivism"
+    },
+    {
+      "argument": "OpenQuestionArgument",
+      "argumentLabel": "for any proposed natural property N that 'good' is claimed to mean, it remains a significant, open question whether something that is N is also good, whereas a genuine analytic identity would make the question trivial or closed; this shows 'good' cannot be reductively defined in natural terms (Moore, against reductive naturalism).",
+      "book": "PrincipiaEthica",
+      "supports": "Nonnaturalism"
+    },
+    {
+      "argument": "ParfitTrivialityObjection",
+      "argumentLabel": "quasi-realist expressivists can 'earn the right' to every realist-sounding sentence, making the dispute between expressivism and realism merely verbal or trivial once creeping minimalism has run its course (Parfit's objection to quasi-realism).",
+      "book": "OnWhatMatters",
+      "supports": null
+    },
+    {
+      "argument": "ReflectionDestroysKnowledge",
+      "argumentLabel": "Of we accept that there can be ethical knowledge within a culture without comparing the culture one belongs to with another, and if we accept the obvious truth that reflection characteristially disturbs, unseats, or replace those traditional concepts, then we reach the notably un-Socratic conclusion that, in ethics, reflection can destroy knowledge.",
+      "book": "EthicsAndTheLimitsOfPhilosophy",
+      "supports": "Relativism"
+    },
+    {
+      "argument": "SupervenienceArgument",
+      "argumentLabel": "moral properties necessarily supervene on natural ones, yet this necessary connection is left mysterious by non-naturalism; a projectivist/expressivist story about why we treat evaluative and descriptive judgments as bound together explains the supervenience more cheaply (Blackburn).",
+      "book": "SecuringTheKnots:MoralEpistemologyForTheQuasiRealist",
+      "supports": "BlackburnExpressivism"
+    },
+    {
+      "argument": "WhyBeMoralArgument",
+      "argumentLabel": "if the connection between recognizing a moral requirement and being moved by it is merely contingent, it becomes puzzling why moral considerations should be practically authoritative at all; this puzzle is often taken to favour internalism (Prichard).",
+      "book": null,
+      "supports": "Internalist"
+    },
+    {
+      "argument": "WrongKindOfReasonsProblem",
+      "argumentLabel": "fitting-attitude and quasi-realist analyses of value in terms of warranted pro-attitudes are threatened by cases where there are reasons of the wrong kind to have the attitude (e.g. a demon threatening to torture unless you admire a stone).",
+      "book": null,
+      "supports": null
+    },
+    {
+      "argument": "ArgumentForQueerness",
+      "argumentLabel": "The argument from queerness claims that objective moral values would be so strange and unlike any other properties in the universe that we have no good reason to believe they exist.",
+      "book": "Ethics:InventingRight&Wrong",
+      "supports": "Fictionalist"
+    },
+    {
+      "argument": "ArgumentForRelativity",
+      "argumentLabel": "The argument from relativity has as its premiss the well-known variation in moral codes from one society to another and from one period to another, and also the differences in moral beliefs between different groups and classes within a complex community. Such variation is in itself merely a truth of descriptive morality, a fact of anthropology which entails neither first order nor second order ethical views (Mackie 1977).",
+      "book": "Ethics:InventingRight&Wrong",
+      "supports": "Fictionalist"
+    },
+    {
+      "argument": "ArgumentForRelativity",
+      "argumentLabel": null,
+      "book": "Ethics:InventingRight&Wrong",
+      "supports": "Relativist"
+    },
+    {
+      "argument": "MoralObligationImposedByCommands",
+      "argumentLabel": "Moral obligation is constituted by commands. What's good, therefore, is what God has commanded.",
+      "book": "FiniteAndInfiniteGoods",
+      "supports": null
+    },
+    {
+      "argument": "MoralStatementsExpressAttitudesAndCommands",
+      "argumentLabel": "Moral Statements are used to express attitudes and to encourage, alter or redirect other people's aims (Stevenson 1944, 22).",
+      "book": "EthicsAndLanguage",
+      "supports": "DifferenceInMoralityAndScience"
+    },
+    {
+      "argument": "SimilaritiesInMoralityAndScience",
+      "argumentLabel": "Moral inquiry is no different from scientific inquiry, because \"goodness\" is a natural property similar to the ones studied by social sciences.",
+      "book": "HowToBeAMoralRealist",
+      "supports": "NonReductiveNaturalism"
+    }
+  ]
+}

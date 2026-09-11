@@ -1,0 +1,44 @@
+{
+  "columns": [
+    "position",
+    "axisProperty",
+    "stance",
+    "stanceDefinition",
+    "author",
+    "authorSeeAlso"
+  ],
+  "rows": [
+    {
+      "position": "ErrorTheory",
+      "axisProperty": "epistemicSupposition",
+      "stance": "Skeptic",
+      "stanceDefinition": "Skepticism in epistemology is a philosophical approach that questions the possibility of knowledge and challenges the reliability of knowledge claims. It often involves doubting whether we can truly know anything beyond our immediate experiences.",
+      "author": "Mackie",
+      "authorSeeAlso": "http://www.wikidata.org/entity/Q713642"
+    },
+    {
+      "position": "ErrorTheory",
+      "axisProperty": "metaphysicalSupposition",
+      "stance": "http://www.github.com/silvialx/Onto/Antirealist",
+      "stanceDefinition": "Antirealism is the negation of relaism. Consequently ethical facts are not \"out there\" as part of reality. Ethical facts are too different, too peculiar compared to what we think composes our reality.",
+      "author": "Mackie",
+      "authorSeeAlso": "http://www.wikidata.org/entity/Q713642"
+    },
+    {
+      "position": "ErrorTheory",
+      "axisProperty": "representationSupposition",
+      "stance": "Representationalist",
+      "stanceDefinition": "Representationalism holds that ethical statements such as \"murder is wrong\" represent a way reality is or could be.",
+      "author": "Mackie",
+      "authorSeeAlso": "http://www.wikidata.org/entity/Q713642"
+    },
+    {
+      "position": "ErrorTheory",
+      "axisProperty": "truthAptnessSupposition",
+      "stance": "TruthApt",
+      "stanceDefinition": "Truth-aptness of statements such as \"murder is wrong\" entail that such statements are either true or false.",
+      "author": "Mackie",
+      "authorSeeAlso": "http://www.wikidata.org/entity/Q713642"
+    }
+  ]
+}

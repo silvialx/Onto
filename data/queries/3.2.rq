@@ -1,0 +1,26 @@
+PREFIX ex:     <http://www.github.com/silvialx/Onto/>
+PREFIX argont: <http://www.github.com/argumentsontology/>
+PREFIX fabio:  <http://purl.org/spar/fabio/>
+PREFIX schema: <https://schema.org/>
+PREFIX rdfs:   <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT ?argumentName ?argumentLabel ?bookName ?supportName 
+WHERE {
+  ?argument a argont:Argument .
+  OPTIONAL { ?argument rdfs:label ?argumentLabel }
+
+  OPTIONAL {
+    ?book a fabio:Book ;
+          schema:about ?argument .
+  }
+
+  OPTIONAL {
+    ?argument argont:supports ?supports .
+  }
+
+BIND(STRAFTER(STR(?argument), "Onto/") AS ?argumentName)
+BIND(STRAFTER(STR(?book), "Onto/") AS ?bookName)
+BIND(STRAFTER(STR(?supports), "Onto/") AS ?supportName)
+}
+
+ORDER BY ?argument

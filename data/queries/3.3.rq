@@ -1,0 +1,37 @@
+PREFIX ex:     <http://www.github.com/silvialx/Onto/>
+PREFIX argo: <http://www.github.com/argumentsontology/>
+PREFIX rdfs:   <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX skos:   <http://www.w3.org/2004/02/skos/core#>
+
+SELECT ?axisPropertyName 
+       ?mackieStanceName ?mackieStanceDefinition
+       ?blackburnStanceName ?blackburnStanceDefinition
+WHERE {
+  VALUES ?axisProperty {
+    ex:metaphysicalSupposition
+    ex:epistemicSupposition
+    ex:cognitivistSupposition
+    ex:actionMotivationSupposition
+    ex:representationSupposition
+    ex:truthAptnessSupposition
+  }
+
+  ex:Mackie    argo:supports ?mackiePosition .
+  ex:Blackburn argo:supports ?blackburnPosition .
+
+  ?mackiePosition    ?axisProperty ?mackieStance .
+  ?blackburnPosition ?axisProperty ?blackburnStance 
+
+  FILTER (?mackieStance != ?blackburnStance)
+
+  ?mackieStance a ?axisClass .
+  ?axisClass rdfs:subClassOf+ ex:Axis .
+  OPTIONAL { ?mackieStance skos:definition ?mackieStanceDefinition }
+  OPTIONAL { ?blackburnStance skos:definition ?blackburnStanceDefinition }
+
+BIND(STRAFTER(STR(?mackieStance), "Onto/") AS ?mackieStanceName)
+BIND(STRAFTER(STR(?blackburnStance), "Onto/") AS ?blackburnStanceName)
+BIND(STRAFTER(STR(?acisPropertyName), "Onto/") AS ?axisPropertyName)
+}
+
+ORDER BY ?axisProperty

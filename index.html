@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Metaethics, an ontology</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="style/tufte.css">
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;0,6..72,700;1,6..72,400;1,6..72,500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <nav class="nav">
+    <a href="#cover" id="nav-mark">ME</a>
+    <ul class="nav-links">
+      <li><a href="#project" data-nav>Project</a></li>
+      <li><a href="#process" data-nav>Process</a></li>
+      <li><a href="#ontology" data-nav>Ontology</a></li>
+      <li><a href="#questions" data-nav>Questions</a></li>
+      <li><a href="#about" data-nav>About</a></li>
+    </ul>
+  </nav>
+
+  <!-- ============ COVER (full viewport) ============ -->
+  <header class="page" id="cover">
+    <div class="cover-body">
+      <h1>Metaethics, in an ontology</h1>
+      <p class="lede">A semantic rendering of the key author, concepts and arguments around the debate of Metaethics.</p>
+    </div>
+    <button id="aristotle-button" class="portrait-button" data-target="3.1" style="align-self: flex-end">
+      <span class="portrait-button__label">The Philosophers</span>
+    </button>
+
+
+
+    <div class="scroll-cue">scroll</div>
+  </header>
+
+  <!-- ============ ABSTRACT ============ -->
+  <section class="doc" id="project">
+    <h2>The Project</h2>
+    <p class="lead">The project aims to map the main aspects of the debate around metaethics, providing a simple but fairly exhaustive tool both for first-look comprehension and comparisons between authors, concepts and stances.</p>
+    <p class="lead">The work is largely based on the analysis presented by Chrisman in his manual <i>What Is This Thing Called Metaethics?</i> <sup class="ref">1</sup>, 
+      where he identifies four main areas along which different metaethical theories may diverge: Philosophy of Mind, Philosophy of Language, 
+      Epistemology, and Metaphysics. Chrisman uses these four pillars to distinguish four major schools of thought: Nonnaturalism, Naturalism, Expressivism, 
+      and Error Theory. These broad categories can be applied to a wide range of philosophers and theoretical approaches. Building on this framework, the present 
+      project retains Chrisman’s  general subdivision while expanding it. Firstly, a more fine-grained classification of the relevant subcategories, with the aim of representing 
+      the different schools of thought more explicitly and comprehensively. Secondly, more philosophers not considered in the manual are added into the ontology through the use of Stanford Enciclopedia<sup class="ref">2</sup> 
+      and Philpapers <sup class="ref">3</sup>. 
+</p>
+
+    <div class="sidenote">
+      <button id="languageTruthandLogic" class="portrait-button portrait-button--sidenote" data-target="3.2">
+        <span class="portrait-button__label">The Works</span>
+      </button>
+      <span class="ref">1</span>
+      <a href="https://philpapers.org/rec/CHRWIT-4">Chrisman 2016.</a>
+      <span class="ref">2</span>
+        <a href="https://plato.stanford.edu/index.html">Stanford Enciclopedia of Philosophy.</a>
+      <span class="ref">3</span>
+      <a href="https://philpapers.org/">Philpapers.</a>
+    </div>
+  </section>
+
+  <!-- ============ PART DIVIDER (full viewport) ============ -->
+  <section class="divider" id="process">
+    <h2>1. The Process</h2>
+        <p class="summary">Gathering information, selecting, categorizing and rendering.</p>
+    <h3>1.1. The material</h3>
+    <p>The process started by reading the <b>relevant material</b>: Chrisman's manual, the Stanford page of metaethics and the relevant books cited by
+      those sources. After that, the <b>list</b> of all the authors and books was sorted. It was then a matter of <b>selecting</b> some of arguments exposed or mentioned
+      in said books. The arguments had to be quite straight-forward in order to be satisfactorily included in the ontology. The claims had to be easily identifiable; the conclusion,
+      if not reducible to a mere support of the position in question, had to be summarizable by a few sentences. This was probably the hardest and most delicate part of the project.
+    </p>
+    <p>The <b>categorization</b> did not as well come without some troubles. The most puzzling task was deciding how to go about classifying some philosophers who naimly belonged to a particular
+      school, but diverged in one or more of the four axis. Blackburn's <b>quasi-realism</b> is a clear example: although commonly refered to as an expressionist in a broad sense, his minimalistic notion of truth
+      makes his position tangent to realism if committed to a necessary condition. That is: if one commits to a minimalistic view of truth, he affirms that, in a way, ethical statements can be true; which goes against
+      what expressionism commonly holds. The solution was to categorize his thought as distinct from expressivism, and marking his view as truth-apt, mind-independent, but antirepresentationalist. The same Thing
+      was done for several other philosopher: creating <i>ad hoc</i> positions and catogorizing them with specific positions in the different axis, to avoid over-generalization.
+    </p>
+    <h3>1.2. Checking for incoherences</h3>
+    <p>
+      Different positions along the four axis are clearly incompatible with one another. One cannot, for instance, reasonably say that they hold both realism and antirealism: that would be a clear contradiction. Positions that hold such contradictory
+      claims were marked as inconsistent<!--METTI LINK-->, and consistent positions were marked as consistent. There are, however, more delicate cases of incoherence to keep in mind.
+      one cannot admit that ethical statements are true or false, without claiming that they <i>represent</i> reality, or mental states, or some inference made by the speaker? Let's peak up again Blackburn's example, mentioned above. He indeed holds both
+      antirepresentationalism and truth-aptness of ethical statements. His position is consistent only under the <b>necessary condition</b> of a minimalistic notion of truth. Therefore Blackburn's position and others with similar criticalities were markes as <b>conditionally consistent</b>.
+    </p>
+    <p>
+      Inconsistency was marked through a simple SWRL rule. Marking consistency, on the other hand, was impossible to do automatically, because of SWRL <b>open-world</b> framework: one cannot infer consistency, using SWRL, by checking a mere absence of incompatibility (isIncombatibleWith object predicates), because the assumption is that,
+      although no such predicates are currently present for the given position, nothing impedes for them being added in the future. In order to still infer consistency  automatically in the positions registered in my ontology, a Python code was used. <!--METTI LINK--> 
+    </p>
+  </section>
+
+  <section class="doc" id="ontology">
+    <h2>2. The Ontology</h2>
+    <p class="summary">The existing ontologies used and the new classes and object properties implemented.</p>
+    <h3>2.1 Authoritative ontologies</h3>
+    <p>This ontology uses existing authoritative ontologies, in order to preserve usability. Here's the list of the ontologies used:</p>
+    <ul>
+      <li><a href="https://sparontologies.github.io/fabio/current/fabio.html">FABIO</a> for bibliographic entities (<span class="tag">Book</span>, <span class="tag">BookChapter</span>);</li>
+      <li><a href="https://github.com/NCOR-Organization/Argument-Ontology">ARGO</a> for classes such as <span class="tag">Argument</span> and <span class="tag">Claim</span>, as well as predicates relating to dialectic actions, usually in reference to arguments or claims (eg. <span class="tag">negates</span>, <span class="tag">affirms</span>, <span class="tag">supports</span>);</li>
+      <li><a href="https://www.dublincore.org/specifications/dublin-core/dcmi-terms/">Dublin Core</a> for predicates like <span class="tag">creator</span>, which relate the bibliographic entities to their author;</li>
+      <li><a href="https://www.w3.org/TR/skos-reference/">SKOS</a> for implementing the object predicate <span class="tag">definition</span>.</li>
+    </ul>
+    <p>Moreover, authors and books are linked to the corresponding <a href="https://www.wikidata.org/wiki/Wikidata:Main_Page">Wikidata</a> entity through the object predicare <span class="tag">rdfs:seeAlso</span>.</p>
+
+    <h3>2.2 The classes</h3>
+    <p>Below you find a list of all the classes used. Click on the elements having a '+' before them to see their subclasses.</p>
+    <ul class="class-tree">
+      <li>
+        <button type="button" class="tree-toggle"><span class="tag">Thing</span></button>
+        <ul class="tree-children">
+          <li><span class="tag">Argument</span></li>
+          <li>
+            <button type="button" class="tree-toggle"><span class="tag">Axis</span></button>
+            <ul class="tree-children">
+              <li><span class="tag">Epistemology</span></li>
+              <li><span class="tag">Metaphysics</span></li>
+              <li>
+                <button type="button" class="tree-toggle"><span class="tag">PhilosophyOfLanguage</span></button>
+                <ul class="tree-children">
+                  <li><span class="tag">Representationalism</span></li>
+                  <li><span class="tag">TruthAptness</span></li>
+                </ul>
+              </li>
+              <li>
+                <button type="button" class="tree-toggle"><span class="tag">PhilosophyOfMind</span></button>
+                <ul class="tree-children">
+                  <li><span class="tag">ActionMotivation</span></li>
+                  <li><span class="tag">Cognitivism</span></li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <button type="button" class="tree-toggle"><span class="tag">BibliographicEntity</span></button>
+            <ul class="tree-children">
+              <li><span class="tag">Book</span></li>
+              <li><span class="tag">BookChapter</span></li>
+            </ul>
+          </li>
+          <li><span class="tag">Claim</span></li>
+          <li><span class="tag">EvaluatedPosition</span></li>
+          <li><span class="tag">MetaethicalPosition</span></li>
+          <li><span class="tag">Person</span></li>
+          <li>
+            <button type="button" class="tree-toggle"><span class="tag">Supposition</span></button>
+            <ul class="tree-children">
+              <li><span class="tag">TruthTheorySupposition</span></li>
+              <li><span class="tag">OntologicalSupposition</span></li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </section>
+
+  <!-- ============ NORMATIVA — bibliography style ============ -->
+  <section class="divider" id="questions">
+    <h2>3. Questions</h2>
+    <p>Let's now put our ontolgy to the test, asking it a few questions.</p>
+
+    <!--
+      Template for a question block: the SPARQL query text and the result
+      table are NOT hardcoded here — js/site.js fetches them at runtime from
+      data/queries/<data-question>.rq and data/results/<data-question>.json,
+      keeping content out of the HTML. Clicking the .question-toggle button
+      expands/collapses the .qa-content dropdown (see initQaBlocks in
+      site.js); the table itself sits in a .qa-table-wrap that scrolls once
+      it grows past its max height/width. To add the next question, duplicate
+      the whole .qa-block, change data-question, the id on .question, and the
+      id/aria-controls pairing on .question-toggle/.qa-content to e.g. "3.2",
+      and add matching data/queries/3.2.rq + data/results/3.2.json.
+    -->
+    <div class="qa-block" data-question="3.1">
+      <button type="button" class="question-toggle" aria-expanded="false" aria-controls="qa-content-3.1">
+        <span class="question" id="3.1">3.1 What are the authors present in the ontology?</span>
+        <span class="qa-toggle-icon" aria-hidden="true"></span>
+      </button>
+      <div class="qa-content" id="qa-content-3.1">
+        <div class="qa-query">
+          <p class="qa-label">SPARQL query</p>
+          <pre><code class="qa-query__code" data-src="data/queries/3.1.rq">loading query…</code></pre>
+        </div>
+        <div class="qa-results">
+          <p class="qa-label">Results</p>
+          <div class="qa-table-wrap">
+            <table class="qa-table" data-src="data/results/3.1.json">
+              <thead></thead>
+              <tbody><tr><td>loading results…</td></tr></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="qa-block" data-question="3.2">
+      <button type="button" class="question-toggle" aria-expanded="false" aria-controls="qa-content-3.2">
+        <span class="question" id="3.2">3.2 What are the arguments listed, in which book do they appear and what do they support?</span>
+        <span class="qa-toggle-icon" aria-hidden="true"></span>
+      </button>
+      <div class="qa-content" id="qa-content-3.2">
+        <div class="qa-query">
+          <p class="qa-label">SPARQL query</p>
+          <pre><code class="qa-query__code" data-src="data/queries/3.2.rq">loading query…</code></pre>
+        </div>
+        <div class="qa-results">
+          <p class="qa-label">Results</p>
+          <div class="qa-table-wrap">
+            <table class="qa-table" data-src="data/results/3.2.json">
+              <thead></thead>
+              <tbody><tr><td>loading results…</td></tr></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+  </div>
+  <div class="qa-block" data-question="3.3">
+    <button type="button" class="question-toggle" aria-expanded="false" aria-controls="qa-content-3.3">
+      <span class="question" id="3.3">3.3 Let's take two philosophers: Mackie and Blackburn, for instance. On what do they disagree on? What does it mean to disagree on those points?</span>
+      <span class="qa-toggle-icon" aria-hidden="true"></span>
+    </button>
+    <div class="qa-content" id="qa-content-3.3">
+      <div class="qa-query">
+        <p class="qa-label">SPARQL query</p>
+        <pre><code class="qa-query__code" data-src="data/queries/3.3.rq">loading query…</code></pre>
+      </div>
+      <div class="qa-results">
+        <p class="qa-label">Results</p>
+        <div class="qa-table-wrap">
+          <table class="qa-table" data-src="data/results/3.3.json">
+            <thead></thead>
+            <tbody><tr><td>loading results…</td></tr></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+    
+  <div class="qa-block" data-question="3.4">
+    <button type="button" class="question-toggle" aria-expanded="false" aria-controls="qa-content-3.4">
+      <span class="question" id="3.4">3.4 What does it mean to be, say, an error theorist? What stances on the axes does it imply, and who is an author that supports error theory?</span>
+      <span class="qa-toggle-icon" aria-hidden="true"></span>
+    </button>
+    <div class="qa-content" id="qa-content-3.4">
+      <div class="qa-query">
+        <p class="qa-label">SPARQL query</p>
+        <pre><code class="qa-query__code" data-src="data/queries/3.4.rq">loading query…</code></pre>
+      </div>
+      <div class="qa-results">
+        <p class="qa-label">Results</p>
+        <div class="qa-table-wrap">
+          <table class="qa-table" data-src="data/results/3.4.json">
+            <thead></thead>
+            <tbody><tr><td>loading results…</td></tr></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+    <div class="qa-block" data-question="3.5">
+    <button type="button" class="question-toggle" aria-expanded="false" aria-controls="qa-content-3.5">
+      <span class="question" id="3.5">3.5 What is the most attacked position in the ontology?</span>
+      <span class="qa-toggle-icon" aria-hidden="true"></span>
+    </button>
+    <div class="qa-content" id="qa-content-3.5">
+      <div class="qa-query">
+        <p class="qa-label">SPARQL query</p>
+        <pre><code class="qa-query__code" data-src="data/queries/3.5.rq">loading query…</code></pre>
+      </div>
+      <div class="qa-results">
+        <p class="qa-label">Results</p>
+        <div class="qa-table-wrap">
+          <table class="qa-table" data-src="data/results/3.5.json">
+            <thead></thead>
+            <tbody><tr><td>loading results…</td></tr></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+  </section>
+
+  <!-- ============ CLOSING (full viewport) ============ -->
+  <footer class="closing" id="about">
+    <section>
+      <div class="cover-foot">
+      <div class="author">
+        Silvia Lusenti
+      </div>
+      <div class="creds">This project was made for evaluation for the <a href="https://www.unibo.it/en/study/course-units-transferable-skills-moocs/course-unit-catalogue/course-unit/2026/533916">Knowledge representation and extraction</a> exam.</div>
+    </div>
+
+    </section>
+
+  </footer>
+
+  <script src="js/site.js" defer></script>
+
+</body>
+</html>
