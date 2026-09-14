@@ -117,6 +117,32 @@
     padding: calc(var(--nav-h) + 2.5rem) clamp(1.25rem, 6vw, 5rem) 2.5rem;
   }
 
+  #cover{
+    background-image: linear-gradient(rgba(14, 12, 9, 0.72), rgba(14, 12, 9, 0.8)), url("../images/school-of-athens.jpg");
+    background-size: cover;
+    background-position: center 22%;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+  }
+
+  #cover .cover-meta{ color: var(--rule); }
+
+  #cover .cover-body h1{ color: var(--paper-raised); }
+
+  #cover .cover-body .lede{ color: var(--paper); }
+
+  #cover .cover-foot{ border-top-color: rgba(199, 191, 169, 0.35); }
+
+  #cover .cover-foot .author{ color: var(--paper-raised); }
+
+  #cover .cover-foot .author span{ color: var(--rule); }
+
+  #cover .cover-foot .creds{ color: var(--rule); }
+
+  #cover .scroll-cue{ color: var(--paper); }
+
+  #cover .scroll-cue::after{ background: var(--paper-raised); }
+
   .cover-meta{
     font-family: var(--mono);
     font-size: 0.78rem;
@@ -442,7 +468,7 @@
 #aristotle-button{
   width: 200px;
   height: 200px;
-  background-image: url("../images/aristotle.png");
+  background-image: url("../images/mackie.jpg");
 }
 
 #languageTruthandLogic{
