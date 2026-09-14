@@ -33,8 +33,6 @@
     </button>
 
 
-
-    <div class="scroll-cue">scroll</div>
   </header>
 
   <!-- ============ ABSTRACT ============ -->
@@ -88,7 +86,7 @@
     </p>
     <p>
       Inconsistency was marked through a simple SWRL rule. Marking consistency, on the other hand, was impossible to do automatically, because of SWRL <b>open-world</b> framework: one cannot infer consistency, using SWRL, by checking a mere absence of incompatibility (isIncombatibleWith object predicates), because the assumption is that,
-      although no such predicates are currently present for the given position, nothing impedes for them being added in the future. In order to still infer consistency  automatically in the positions registered in my ontology, a Python code was used. <!--METTI LINK--> 
+      although no such predicates are currently present for the given position, nothing impedes for them being added in the future. In order to still infer consistency  automatically in the positions registered in my ontology, a Python code was used. The file is available in the <a href="https://github.com/silvialx/Onto">repository.</a> <!--METTI LINK--> 
     </p>
   </section>
 
@@ -161,18 +159,6 @@
     <h2>3. Questions</h2>
     <p>Let's now put our ontolgy to the test, asking it a few questions.</p>
 
-    <!--
-      Template for a question block: the SPARQL query text and the result
-      table are NOT hardcoded here — js/site.js fetches them at runtime from
-      data/queries/<data-question>.rq and data/results/<data-question>.json,
-      keeping content out of the HTML. Clicking the .question-toggle button
-      expands/collapses the .qa-content dropdown (see initQaBlocks in
-      site.js); the table itself sits in a .qa-table-wrap that scrolls once
-      it grows past its max height/width. To add the next question, duplicate
-      the whole .qa-block, change data-question, the id on .question, and the
-      id/aria-controls pairing on .question-toggle/.qa-content to e.g. "3.2",
-      and add matching data/queries/3.2.rq + data/results/3.2.json.
-    -->
     <div class="qa-block" data-question="3.1">
       <button type="button" class="question-toggle" aria-expanded="false" aria-controls="qa-content-3.1">
         <span class="question" id="3.1">3.1 What are the authors present in the ontology?</span>
